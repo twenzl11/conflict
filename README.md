@@ -2,6 +2,7 @@ Conflict Management:
 a game that lets learners choose their own conflict management adventure
 
 Credits and Acknowledgements:
+
 The STATE method comes from the book Crucial Conversations:
 Grenny, J., Patterson, K., McMillan, R., Switzler, A., & Gregory, E. (2023). Crucial conversations: Tools for talking when stakes are high (Third edition). McGraw Hill.
 
