@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Team conflict management" startnode="36" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="Team conflict management" startnode="35" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
   
   background-image: url("images/engBG.jpg");
   background-size: cover;
@@ -127,155 +127,179 @@ tw-hook[name="win"] {
   margin-top: 40px !important;        /* Adds space above it */
   margin-bottom: 25px !important;     /* Adds space below it */
   letter-spacing: 1px !important;     /* Slightly spreads the letters for impact */
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-passagedata pid="1" name="Introduction" tags="" position="575,225" size="100,100">{You are part of a four-person team conducting a small research study. Your teammates, sitting across from you, are: 
-* Chad, a white man with experience in chemical engineering
-* Monica, a Latina woman with experience in mechanical engineering
-* Amar, a south Asian man from India with experience in civil engineering and strong math skills
-&lt;img src=&quot;images/introduction.jpeg&quot; alt=&quot;Chad, Monica, and Amar are sitting together at a table in a lab looking ready to begin.&quot;&gt;
-Your team has been asked to select a leader. Chad and Monica both volunteer. 
-&lt;br&gt;
-&#39;&#39;What do you do?&#39;&#39;
-
-[[Pick Chad - he seems very confident about his abilities-&gt;A]]
-[[Pick Monica - she seems really excited and enthusiastic-&gt;B1]]
-[[Start a discussion about both teammates&#39; qualifications and leadership approaches-&gt;C]]}</tw-passagedata><tw-passagedata pid="2" name="A" tags="" position="575,350" size="100,100">{Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">{Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;img src=&quot;images/A_Chad_orders_Karen.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad orders Monica to take notes and Monica looks unhappy.&quot;&gt;
-&#39;&#39;What do you do?
-&#39;&#39;[[Ignore it -&gt;F]]
-[[Suggest rotating note taking responsibilities so that everyone takes a turn-&gt;G]]
-[[Call Chad out for being sexist-&gt;H]]}</tw-passagedata><tw-passagedata pid="3" name="B" tags="" position="700,350" size="100,100">{You begin discussing the research project. Both Chad and Amar have ideas about where to start, but your team can only select one path forward. 
+&#39;&#39;What do you do?&#39;&#39;
+(link: &quot;Ignore it&quot;)[ (set: $score to it -2) (go-to: &quot;F&quot;) ]
+(link: &quot;Suggest rotating note taking responsibilities so that everyone takes a turn&quot;)[ (set: $score to it + 1) (go-to: &quot;G&quot;) ]
+(link: &quot;Call out Chad&#39;s sexist statement&quot;)[ (go-to: &quot;H&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="2" name="B" tags="" position="925,175" size="100,100">{You begin discussing the research project. Both Chad and Amar have ideas about where to start, but your team can only select one path forward. 
 &lt;img src=&quot;images/B_Chad_Amar_have_ideas.jpeg&quot; alt=&quot;Chad and Amar write on a whiteboard while Monica looks on.&quot;&gt;
 &#39;&#39;What do you do?&#39;&#39;
-[[Stay silent and let them work it out-&gt;D]]
-[[Ask questions about the viability of each idea-&gt;E]]}</tw-passagedata><tw-passagedata pid="4" name="C" tags="" position="450,350" size="100,100">{After a team discussion, even Chad agrees Monica should lead.
+(link: &quot;Stay silent and let them work it out&quot;)[ (set: $score to it - 1) (go-to: &quot;D&quot;) ]
+(link: &quot;Ask questions about the viability of each idea&quot;)[ (set: $score to it + 1) (go-to: &quot;E&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="3" name="C" tags="" position="950,325" size="100,100">{After your team discusses Chad and Monica&#39;s qualifications,, even Chad agrees Monica should lead.
 &lt;img src=&quot;images/C_B1_Karen_leader.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad and Amar surround Monica, and all look happy.&quot;&gt;
-|continue&gt;[[[Continue-&gt;B]]]}</tw-passagedata><tw-passagedata pid="5" name="F" tags="" position="575,475" size="100,100">{Monica refuses to take notes and calls Chad a sexist pig. 
+(display: &quot;scoreboard&quot;)
+|continue&gt;[[[Continue-&gt;B]]]}</tw-passagedata><tw-passagedata pid="4" name="F" tags="" position="375,325" size="100,100">{Monica refuses to take notes and calls Chad a sexist pig. 
 &lt;img src=&quot;images/F_Karen_namecall_Chad.jpeg&quot; alt=&quot;Monica is standing up yelling at Chad and pointing a finger at him. Amar looks very concerned.&quot;&gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Suggest rotating so everyone takes a turn as note taker-&gt;G]]
-[[Tell Monica to calm down-&gt;P1]]
-[[Ignore it and stay silent-&gt;P]]}</tw-passagedata><tw-passagedata pid="6" name="G" tags="" position="700,475" size="100,100">{Everyone agrees to take turns as note taker. 
+(link: &quot;Suggest rotating so everyone takes a turn as note taker&quot;)[ (set: $score to it + 1) (go-to: &quot;G&quot;) ]
+(link: &quot;Tell Monica to calm down&quot;)[ (set: $score to it - 3) (go-to: &quot;P1&quot;) ]
+(link: &quot;Ignore it and stay silent&quot;)[ (set: $score to it - 2) (go-to: &quot;P&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="5" name="G" tags="" position="500,350" size="100,100">{Everyone agrees to take turns as note taker. 
 &lt;img src=&quot;images/G_Q_all_notetakers.jpeg&quot; alt=&quot;The three teammates are sitting at a table ready to take notes.&quot;&gt;
-|continue&gt;[[[Continue-&gt;B]]]}</tw-passagedata><tw-passagedata pid="7" name="H" tags="" position="450,475" size="100,100">{Chad gets really angry and says women can&#39;t be engineers anyway, so she should just do what she&#39;s good at. Monica gets angrier and calls Chad a sexist pig. 
+|continue&gt;[[[Continue-&gt;B]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="6" name="H" tags="" position="200,300" size="100,100">{Chad gets really angry and says women can&#39;t be engineers anyway, so she should just do what she&#39;s good at. Monica gets angrier and calls Chad a sexist pig. 
 &lt;img src=&quot;images/H_X_Y_Chad_Karen_yelling.jpeg&quot; alt=&quot;Chad and Monica are standing up yelling at each other. Amar is seated and looks shocked.&quot;&gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Suggest ending the meeting there and discuss roles at the next meeting when people are calmer-&gt;P]]
-[[Remind everyone that they all have important skills and contributions to make to the project-&gt;Q]]
-[[Walk out silently-&gt;R]]}</tw-passagedata><tw-passagedata pid="8" name="D" tags="" position="825,475" size="100,100">{Chad and Amar both argue for their ideas and Chad is getting louder. Finally he shouts, &quot;Trust me! This is MY country and I know what needs to be done!&quot; 
+(link: &quot;Suggest ending the meeting there and discuss roles at the next meeting when people are calmer&quot;)[  (set: $score to it -1)(go-to: &quot;P&quot;) ]
+(link: &quot;Remind everyone that they all have important skills and contributions to make to the project, and that women can clearly be engineers&quot;)[ (set: $score to it + 2)  (go-to: &quot;Q&quot;) ]
+(link: &quot;Walk out silently&quot;)[ (set: $score to it -2)  (go-to: &quot;R&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="7" name="D" tags="" position="950,475" size="100,100">{Chad and Amar both argue for their ideas and Chad is getting louder. Finally he shouts, &quot;Trust me! This is MY country and I know what needs to be done!&quot; 
 &lt;img src=&quot;images/D_Chad_yells_Amar.jpeg&quot; alt=&quot;Chad and Amar stand near a whiteboard. Chad is yelling at Amar. Monica watches.&quot;&gt;
 &#39;&#39;What do you do?&#39;&#39;
-[[Call Chad out for discrimination-&gt;I]]
-[[Ask questions about the viability of each idea in an attempt to de-escalate-&gt;E]]
-[[Stay silent-&gt;J]]}
-</tw-passagedata><tw-passagedata pid="9" name="E" tags="" position="700,600" size="100,100">As Chad and Amar answer your questions about their plans, a major issue is revealed in Chad&#39;s plan. Amar&#39;s plan appears to be the best path forward, though Chad had some good ideas in his plan as well. 
+(link: &quot;Say &#39;That sounded like discrimination, Chad - what do you mean?&#39;&quot;)[ (set: $score to it + 2) (go-to: &quot;I&quot;) ]
+(link: &quot;Ask questions about the viability of each idea in an attempt to de-escalate&quot;)[ (go-to: &quot;E&quot;) ]
+(link: &quot;Stay silent&quot;)[ (set: $score to it - 2) (go-to: &quot;J&quot;) ]
+(display: &quot;scoreboard&quot;)}
+</tw-passagedata><tw-passagedata pid="8" name="E" tags="" position="775,325" size="100,100">{As Chad and Amar answer your questions about their plans, a major issue is revealed in Chad&#39;s plan. Amar&#39;s plan appears to be the best path forward, though Chad had some good ideas in his plan as well. 
 &lt;img src=&quot;images/E_L_discussing_Amar_plan.jpeg&quot; alt=&quot;Your teammates are standing in front of a whiteboard full of writing.&quot;&gt;
-What do you do?
-{[[Suggest using Amar&#39;s plan, but include the best part of Chad&#39;s plan that improves Amar&#39;s design-&gt;L]]
-[[Suggest the team vote on the best idea-&gt;M]]
-[[Go along with whatever Monica decides-&gt;N]]}
-</tw-passagedata><tw-passagedata pid="10" name="I" tags="" position="825,600" size="100,100">{Chad is surprised by your accusation but backtracks, saying he just meant he understood the context best. Everyone calms down and returns to discussing the ideas as you ask questions about both. 
+&#39;&#39;What do you do?&#39;&#39;
+(link: &quot;Suggest using Amar&#39;s plan, but include the best part of Chad&#39;s plan that improves Amar&#39;s design&quot;)[ (set: $score to it + 2) (go-to: &quot;L&quot;) ]
+(link: &quot;Suggest the team vote on the best idea&quot;)[ (go-to: &quot;M&quot;) ]
+(link: &quot;Go along with whatever Monica decides&quot;)[ (set: $score to it -1) (go-to: &quot;N&quot;) ]
+(display: &quot;scoreboard&quot;)}
+</tw-passagedata><tw-passagedata pid="9" name="I" tags="" position="950,650" size="100,100">{Chad looks surprised and backtracks, saying he just meant he understood the context best. He apologizes to Amar. Everyone calms down and returns to discussing the ideas as you ask questions about both. 
 &lt;img src=&quot;images/I_Chad_backtracks.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad looks sheepish.&quot;&gt;
-|continue&gt;[[[Continue-&gt;E]]]}</tw-passagedata><tw-passagedata pid="11" name="J" tags="" position="825,725" size="100,100">{Amar storms out of the meeting. You, Chad and Monica continue discussing Chad&#39;s idea and while some of it is really solid, you find a major issue that Amar&#39;s plan doesn&#39;t have. 
+|continue&gt;[[[Continue-&gt;E]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="10" name="J" tags="" position="1050,775" size="100,100">{Amar storms out of the meeting. You, Chad and Monica continue discussing Chad&#39;s idea and while some of it is really solid, you find a major issue that Amar&#39;s plan doesn&#39;t have. 
 &lt;img src=&quot;images/J_Amar_storms_out.jpeg&quot; alt=&quot;Chad and Monica are seated at the table watching as Amar leaves angrily.&quot;&gt;
 &#39;&#39;What do you do?&#39;&#39;
-[[Suggest using Amar&#39;s plan and include an element from Chad&#39;s plan that improves the overall project design-&gt;L]]
-[[Suggest the three of you vote on which plan to adopt-&gt;M]]
-[[Go along with whatever Monica decides-&gt;N]]}</tw-passagedata><tw-passagedata pid="12" name="L" tags="" position="700,725" size="100,100">{The team agrees to your suggestion and adopts Amar&#39;s plan with the added element from Chad&#39;s plan. The meeting ends. 
+(link: &quot;Suggest using Amar&#39;s plan and include an element from Chad&#39;s plan that improves the overall project design&quot;)[ (set: $score to it + 2) (go-to: &quot;L&quot;) ]
+(link: &quot;Suggest the three of you vote on which plan to adopt&quot;)[(go-to: &quot;M&quot;) ]
+(link: &quot;Go along with whatever Monica decides&quot;)[ (set: $score to it -1) (go-to: &quot;N&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="11" name="L" tags="" position="800,500" size="100,100">{The team agrees to your suggestion and adopts Amar&#39;s plan with the added element from Chad&#39;s plan. The meeting ends. 
 &lt;img src=&quot;images/E_L_discussing_Amar_plan.jpeg&quot; alt=&quot;Your teammates are standing in front of a whiteboard full of writing.&quot;&gt;
-|continue&gt;[[[Continue-&gt;L1]]]}</tw-passagedata><tw-passagedata pid="13" name="M" tags="" position="575,725" size="100,100">{The team votes to adopt Chad&#39;s idea. Amar is really unhappy about this. 
+|continue&gt;[[[Continue-&gt;L1]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="12" name="M" tags="" position="550,525" size="100,100">{The team votes to adopt Chad&#39;s idea. Amar is really unhappy about this. 
 &lt;img src=&quot;images/M_vote_Chad_idea.jpeg&quot; alt=&quot;Chad and Monica have their arms raised to vote for Chad&#39;s idea. Amar looks unhappy.&quot;&gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Pull Amar aside and check in with him-&gt;S]]
-[[Ask Amar what his issue is in front of the group-&gt;T]]
-[[Do nothing-&gt;U]]}</tw-passagedata><tw-passagedata pid="14" name="N" tags="" position="700,850" size="100,100">{Monica decides that the team will go with Amar&#39;s idea. Chad turns red and looks like he&#39;s about to lose it. 
+(link: &quot;Pull Amar aside and check in with him&quot;)[ (set: $score to it + 2) (go-to: &quot;S&quot;) ]
+(link: &quot;Ask Amar what his issue is in front of the team&quot;)[ (set: $score to it - 3) (go-to: &quot;T&quot;) ]
+(link: &quot;Do nothing&quot;)[ (set: $score to it - 2) (go-to: &quot;U&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="13" name="N" tags="" position="1050,975" size="100,100">{Monica decides that the team will go with Amar&#39;s idea. Chad turns red and looks like he&#39;s about to lose it. 
 &lt;img src=&quot;images/N_Karen_chooses_Amar.jpeg&quot; alt=&quot;Chad is red in the face and looks angry.&quot;&gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Compliment the best part of his idea and ask if the team can incorporate it into Amar&#39;s plan-&gt;V]]
-[[Tell Chad to calm down, the leader has spoken-&gt;W]]}</tw-passagedata><tw-passagedata pid="15" name="P" tags="" position="450,600" size="100,100">{The meeting ends and Chad and Monica both storm out. 
+(link: &quot;Compliment the best part of his idea and ask if the team can incorporate it into Amar&#39;s plan&quot;)[ (set: $score to it + 3) (go-to: &quot;V&quot;) ]
+(link: &quot;Tell Chad to calm down, the leader has spoken&quot;)[ (set: $score to it - 5) (go-to: &quot;W&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="14" name="P" tags="" position="250,500" size="100,100">{The meeting ends and Chad and Monica both storm out. 
 &lt;img src=&quot;images/P_Chad_Karen_storm_out.jpeg&quot; alt=&quot;Monica and Chad both storm away from the table, leaving Amar looking stunned.&quot;&gt;
 &#39;&#39;What&#39;s your plan for the next meeting? &#39;&#39;
-[[Come prepared to use the STATE method to try to resolve the issues between Chad and Monica-&gt;AA]]
-[[Suggest creating a team charter with plan to communicate and listen respectfully-&gt;X]]
-[[Show up and hope for the best-&gt;Y]]}</tw-passagedata><tw-passagedata pid="16" name="Q" tags="" position="450,725" size="100,100">{Your reminder diffuses the situation and the team decides to rotate note taking responsibilities. 
+(link: &quot;Come prepared to use the STATE method to try to resolve the issues between Chad and Monica&quot;)[ (set: $score to it + 3) (go-to: &quot;AA&quot;) ]
+(link: &quot;Suggest creating a team charter with plan to communicate and listen respectfully&quot;)
+[ (set: $score to it + 1) (go-to: &quot;X&quot;) ]
+(link: &quot;Show up and hope for the best&quot;)[ (set: $score to it - 2) (go-to: &quot;Y&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="15" name="Q" tags="" position="375,600" size="100,100">{Your reminder diffuses the situation and the team decides to rotate note taking responsibilities. 
 &lt;img src=&quot;images/G_Q_all_notetakers.jpeg&quot; alt=&quot;The three teammates are sitting at a table ready to take notes.&quot;&gt;
-|continue&gt;[[[Continue-&gt;B]]]}</tw-passagedata><tw-passagedata pid="17" name="B1" tags="" position="575,850" size="100,100">{Monica will lead the team. 
+|continue&gt;[[[Continue-&gt;B]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="16" name="B1" tags="" position="925,50" size="100,100">{Monica will lead the team. 
 &lt;img src=&quot;images/C_B1_Karen_leader.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad and Amar surround Monica, and all look happy.&quot;&gt;
-|continue&gt;[[[Continue-&gt;B]]]}</tw-passagedata><tw-passagedata pid="18" name="R" tags="" position="325,600" size="100,100">{You leave the meeting. The next day, you receive an email notifying you that you have been removed from the team and must now complete a research project alone. 
+|continue&gt;[[[Continue-&gt;B]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="17" name="R" tags="" position="125,500" size="100,100">{You leave the meeting. The next day, you receive an email notifying you that you have been removed from the team and must now complete a research project alone. 
 &lt;img src=&quot;images/Remail.jpeg&quot; alt=&quot;A laptop screen displays the words &#39;You&#39;re fired.&#39;&quot;&gt;
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}
 
 
 
-</tw-passagedata><tw-passagedata pid="19" name="L1" tags="" position="825,850" size="100,100">{At the next team meeting, you notice Amar is quieter than usual and seems upset. 
+</tw-passagedata><tw-passagedata pid="18" name="L1" tags="" position="800,625" size="100,100">{At the next team meeting, you notice Amar is quieter than usual and seems upset. 
 &lt;img src=&quot;images/L1_Amar_unhappy.jpeg&quot; alt=&quot;Chad and Monica discuss something while Amar sits at a distance, looking annoyed.&quot;&gt;
 &#39;&#39;What do you do?&#39;&#39; 
-[[Pull Amar aside and check in with him-&gt;S]]
-[[Ask Amar what his issue is in front of the group-&gt;T]]
-[[Do nothing-&gt;U]]}</tw-passagedata><tw-passagedata pid="20" name="S" tags="" position="825,975" size="100,100">{Amar says that he is uncomfortable working with Chad and wants to execute his idea on his own without the rest of the team. He says leaving will help the rest of the team avoid  conflict. 
+(link: &quot;Pull Amar aside and check in with him&quot;)[ (set: $score to it + 3) (go-to: &quot;S&quot;) ]
+(link: &quot;Ask Amar what his issue is in front of the group&quot;)[ (set: $score to it - 3) (go-to: &quot;T&quot;) ]
+(link: &quot;Do nothing&quot;)[ (set: $score to it - 1) (go-to: &quot;U&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="19" name="S" tags="" position="800,775" size="100,100">{Amar says that he is uncomfortable working with Chad and wants to execute his idea on his own without the rest of the team. He says leaving will help the rest of the team avoid  conflict. 
 &lt;img src=&quot;images/S_Amar_aside.jpeg&quot; alt=&quot;Amar leans against a wall in a hallway. He looks frustrated.&quot;&gt;
-&#39;&#39;What do you do? &#39;&#39;
-[[Agree with Amar-&gt;U]]
-[[Remind Amar about the really good parts of his plan and tell him the team really needs his expertise to make the project work -&gt;Z]]}</tw-passagedata><tw-passagedata pid="21" name="T" tags="" position="950,975" size="100,100">{Amar stays completely silent and won&#39;t answer you. The next day, you find out he quit the team. 
+&#39;&#39;What do you do?&#39;&#39;
+(link: &quot;Agree with Amar&quot;)[ (set: $score to it -3) (go-to: &quot;U&quot;) ]
+(link: &quot;Remind Amar about the really good parts of his plan and tell him the team really needs his expertise to make the project work&quot;)[ (set: $score to it + 2) (go-to: &quot;Z&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="20" name="T" tags="" position="925,775" size="100,100">{Amar stays completely silent and won&#39;t answer you. 
 &lt;img src=&quot;images/T_Amar_is_mad.jpeg&quot; alt=&quot;Your three teammates all sit at the table. Amar looks disengaged and a little mad.&quot;&gt;
-|continue&gt;[[[Continue-&gt;T1]]]}</tw-passagedata><tw-passagedata pid="22" name="U" tags="" position="700,975" size="100,100">{Amar stops coming to group meetings and isn&#39;t contributing to the project. 
+The next day, you find out he quit the team. 
+|continue&gt;[[[Continue-&gt;T1]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="21" name="U" tags="" position="575,650" size="100,100">{Amar stops coming to group meetings and isn&#39;t contributing to the project. 
 &lt;img src=&quot;images/U_T1_No_Amar.jpeg&quot; alt=&quot;Chad and Monica are working at the table.&quot; &gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Divide the extra work among the three of you-&gt;T1]]
-[[Call Amar and talk with him about how valuable his expertise is and that you value his work. Ask him to rejoin the team -&gt;Z]]}
-</tw-passagedata><tw-passagedata pid="23" name="V" tags="" position="575,975" size="100,100">{Chad calms down when the group is willing to incorporate part of his idea into the research project. 
+(link: &quot;Dive the extra work between the three of you&quot;)[ (set: $score to it -2) (go-to: &quot;T1&quot;) ]
+(link: &quot;Call Amar and talk with him about how important his expertise is and that you value his work. Ask him to rejoin the team&quot;)[ (set: $score to it + 4) (go-to: &quot;Z&quot;) ]
+(display: &quot;scoreboard&quot;)}
+</tw-passagedata><tw-passagedata pid="22" name="V" tags="" position="900,900" size="100,100">{Chad calms down when the group is willing to incorporate part of his idea into the research project. 
 &lt;img src=&quot;images/V_include_Chad.jpeg&quot; alt=&quot;Monica and Amar smile at Chad, who is smiling back.&quot;&gt;
-|continue&gt;[[[Continue-&gt;BB]]]}</tw-passagedata><tw-passagedata pid="24" name="W" tags="" position="700,1100" size="100,100">{Chad explodes with rage, calls everyone stupid, and quits the group. Unfortunately, he was the only chemical engineer on the team, and without him, the project fails. 
+|continue&gt;[[[Continue-&gt;L1]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="23" name="W" tags="" position="500,975" size="100,100">{Chad explodes with rage, calls everyone stupid, and quits the group. Unfortunately, he was the only chemical engineer on the team, and without him, the project fails. 
 &lt;img src=&quot;images/W_Chad_storms_out.jpeg&quot; alt=&quot;Chad storms out of the room as Monica and Amar look on.&quot;&gt;
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}</tw-passagedata><tw-passagedata pid="25" name="X" tags="" position="325,725" size="100,100">{Monica sarcastically responds that this would have been great to have BEFORE Chad starting acting like a jerk. Chad responds by saying that Monica should just shut up and do her job. The two begin arguing again before the meeting even gets started! 
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="24" name="X" tags="" position="50,650" size="100,100">{Monica sarcastically responds that this would have been great to have BEFORE Chad starting acting like a jerk. Chad responds by saying that Monica should just shut up and do her job. The two begin arguing again before the meeting even gets started! 
 &lt;img src=&quot;images/H_X_Y_Chad_Karen_yelling.jpeg&quot; alt=&quot;Chad and Monica are standing up yelling at each other. Amar is seated and looks shocked.&quot;&gt;
 &#39;&#39;What do you do? &#39;&#39;
-[[Try using the STATE method to resolve their issues-&gt;AA]]
-[[Remind me what the STATE method is-&gt;EE]]
-[[Sit quietly and let them yell it out-&gt;CC]]}</tw-passagedata><tw-passagedata pid="26" name="Y" tags="" position="450,850" size="100,100">{You arrive to the meeting and Chad and Monica are already screaming at each other. This doesn&#39;t sound good! 
+(link: &quot;Try using the STATE method to resolve their issue&quot;)[ (set: $score to it + 3) (go-to: &quot;AA&quot;) ]
+(link: &quot;Remind me what the STATE method is&quot;)[  (go-to: &quot;EE&quot;) ]
+(link: &quot;Sit quietly and let them yell it out&quot;)[ (set: $score to it - 5) (go-to: &quot;CC&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="25" name="Y" tags="" position="450,850" size="100,100">{You arrive to the meeting and Chad and Monica are already screaming at each other. This doesn&#39;t sound good! 
 &lt;img src=&quot;images/H_X_Y_Chad_Karen_yelling.jpeg&quot; alt=&quot;Chad and Monica are standing up yelling at each other. Amar is seated and looks shocked.&quot;&gt;
 &#39;&#39;What do you do?
-&#39;&#39;[[Sit quietly and let them yell it out-&gt;CC]]
-[[Try using the STATE method to resolve their issues-&gt;AA]]
-[[Remind me what the STATE method is-&gt;EE]]}
+&#39;&#39;
+(link: &quot;Sit quietly and let them yell it out&quot;)[ (set: $score to it - 5) (go-to: &quot;CC&quot;) ]
+(link: &quot;Try using the STATE method to resolve their issue&quot;)[ (set: $score to it + 3) (go-to: &quot;AA&quot;) ]
+(link: &quot;Remind me what the STATE method is&quot;)[ (go-to: &quot;EE&quot;) ]
+(display: &quot;scoreboard&quot;)}
 
 
-</tw-passagedata><tw-passagedata pid="27" name="Z" tags="" position="800,1100" size="100,100">{Amar thanks you and decides to continue participating in the project.
+</tw-passagedata><tw-passagedata pid="26" name="Z" tags="" position="900,1050" size="100,100">{Amar thanks you and decides to continue participating in the project.
 &lt;img src=&quot;images/ZAmarAgrees.jpeg&quot; alt=&quot;Amar leans against a wall in a hallway. He looks happy.&quot;&gt;
 
-|continue&gt;[[[Continue-&gt;BB]]]}</tw-passagedata><tw-passagedata pid="28" name="T1" tags="" position="575,1100" size="100,100">{As the remaining three of you work on the project, you realize Amar was the only one who knew how to do the necessary calculations. The research project fails. 
+|continue&gt;[[[Continue-&gt;BB]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="27" name="T1" tags="" position="375,975" size="100,100">{As the remaining three of you work on the project, you realize Amar was the only one who knew how to do the necessary calculations. The research project fails. 
 &lt;img src=&quot;images/U_T1_No_Amar.jpeg&quot; alt=&quot;Chad and Monica are working at the table.&quot; &gt;
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}
-</tw-passagedata><tw-passagedata pid="29" name="BB" tags="" position="700,1225" size="100,100">{The team works together well and the project is successful. 
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}
+</tw-passagedata><tw-passagedata pid="28" name="BB" tags="" position="775,1050" size="100,100">{The team works together well and the project is successful. 
 &lt;img src=&quot;images/BBsuccess.jpeg&quot; alt=&quot;The three teammates sit at a table looking happy. Amar gives a thumbs up.&quot;&gt;
 
 |win&gt;[Congratulations!]
 
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}</tw-passagedata><tw-passagedata pid="30" name="AA" tags="" position="325,850" size="100,100">First, you ask Monica and Chad to &#39;&#39;share their facts&#39;&#39;. Chad calmly states that SOMEONE needs to take notes. Monica states that ANYONE could take notes, not just her. 
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="29" name="AA" tags="" position="175,650" size="100,100">First, you ask Monica and Chad to &#39;&#39;share their facts&#39;&#39;. Chad calmly states that SOMEONE needs to take notes. Monica states that ANYONE could take notes, not just her. 
 
 Next you ask Monica to &#39;&#39;tell her story&#39;&#39;. Monica says anyone could take notes and there&#39;s no reason she should be the one to do it. She was offended when Chad said only women can take notes.
 
 Then you &#39;&#39;ask for the other&#39;s path&#39;&#39;. Chad says the group is never going to get any work done if Monica refuses to take notes. He doesn&#39;t understand why this is such a big deal.
 {
 &lt;img src=&quot;images/AASTATE1.jpeg&quot; alt=&quot;Chad and Monica are both facing forward at the table. Monica is talking. Amar looks on.&quot;&gt;
-|continue&gt;[[[Continue-&gt;DD]]]}</tw-passagedata><tw-passagedata pid="31" name="CC" tags="" position="450,975" size="100,100">{The fight escalates until a passing professor intervenes. Chad and Monica both have to meet with the Dean before they are allowed to conduct research again. The research group disbands and the project fails. 
+|continue&gt;[[[Continue-&gt;DD]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="30" name="CC" tags="" position="250,975" size="100,100">{The fight escalates until a passing professor intervenes. Chad and Monica both have to meet with the Dean before they are allowed to conduct research again. The research group disbands and the project fails. 
 &lt;img src=&quot;images/CC_professor_intervenes.jpeg&quot; alt=&quot;Monica and Chad are both standing and arguing. Amar is seated and looks distraught. Professor Brown has just walked in and looks horrified.&quot;&gt;
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}</tw-passagedata><tw-passagedata pid="32" name="DD" tags="" position="325,975" size="100,100">{Now it&#39;s time to &#39;&#39;talk tentatively&#39;&#39;. You suggest that perhaps everyone could take turns taking notes so that the responsibility is shared among the team instead of living with one person for the entire project. 
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="31" name="DD" tags="" position="250,775" size="100,100">Now it&#39;s time to &#39;&#39;talk tentatively&#39;&#39;. You suggest that perhaps everyone could take turns taking notes so that the responsibility is shared among the team instead of living with one person for the entire project. 
 
 Finally, you &#39;&#39;encourage testing&#39;&#39; by asking the two what they think of your idea and whether they have any other ideas to resolve this issue and move forward as a team. Monica immediately agrees with your idea. After thinking about it for a minute, Chad agrees as well. 
-&lt;img src=&quot;images/DD_STATE_2.jpeg&quot; alt=&quot;Monica looks happy and Chad looks content. Amar looks happy.&quot;&gt;
+{&lt;img src=&quot;images/DD_STATE_2.jpeg&quot; alt=&quot;Monica looks happy and Chad looks content. Amar looks happy.&quot;&gt;
 |continue&gt;[[[Continue-&gt;B]]]
-}</tw-passagedata><tw-passagedata pid="33" name="EE" tags="" position="450,1100" size="100,100">The STATE method is adapted from the book Crucial Conversations (Grenny et al., 2023)
+(display: &quot;scoreboard&quot;)
+}</tw-passagedata><tw-passagedata pid="32" name="EE" tags="" position="100,900" size="100,100">The STATE method is adapted from the book Crucial Conversations (Grenny et al., 2023)
 
 S –&#39;&#39; Share your facts&#39;&#39;: state only the facts of the situation, and leave out feelings for now.
 T – &#39;&#39;Tell your story&#39;&#39;: Explain the conclusions you&#39;ve drawn about the situation, including how you feel about it and how it is impacting you.
 A – &#39;&#39;Ask for the other&#39;s path&#39;&#39;: Invite the other person to share their side of the story, including how they feel about it.
 T – &#39;&#39;Talk tentatively&#39;&#39;: Try to find common ground using tentative language like &quot;what if we...&quot; or &quot;could we try...&quot;.
 {E – &#39;&#39;Encourage testing&#39;&#39;: Invite opposing ideas and ask if you&#39;ve missed anything. 
-|continue&gt;[(link-undo: &quot;Go Back&quot;)]}</tw-passagedata><tw-passagedata pid="34" name="P1" tags="" position="575,600" size="100,100">{Monica raises her fist in the air, yells &quot;down with the patriarchy!&quot; and quits the team. 
+|continue&gt;[(link-undo: &quot;Go Back&quot;)]}</tw-passagedata><tw-passagedata pid="33" name="P1" tags="" position="400,450" size="100,100">{Monica raises her fist in the air, yells &quot;down with the patriarchy!&quot; and quits the team. 
 &lt;img src=&quot;images/P1_Karen_quits.jpeg&quot; alt=&quot;Monica is standing with a fist in the air yelling at Chad. Amar looks shocked.&quot;&gt;
 Unfortunately, you really needed her skills to make the research project work. Without Monica, the project fails.
 
-|continue&gt;[[[Credits and acknowledgements-&gt;Credits]]]}</tw-passagedata><tw-passagedata pid="35" name="Credits" tags="cover" position="575,1225" size="100,100">{The STATE method comes from the book Crucial Conversations:
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="34" name="credits" tags="cover" position="600,1200" size="100,100">{The STATE method comes from the book Crucial Conversations:
 Grenny, J., Patterson, K., McMillan, R., Switzler, A., &amp; Gregory, E. (2023). Crucial conversations: Tools for talking when stakes are high (Third edition). McGraw Hill.
 
 [[What&#39;s the STATE method? -&gt;EE]]
@@ -286,7 +310,7 @@ Google. (2026). //Gemini response to prompt about Chad, Monica, and Amar// [Unpu
 
 {A big thank you to my PhD advisor, Dr. Vanessa Svihla, for introducing me to Twine (the program used to create this) and her guidance and feedback as I developed this game.
 
-|continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="36" name="cover" tags="" position="575,75" size="100,100">{&lt;div style=&quot;text-align: center; margin-top: 5vh; font-family: sans-serif; color: #424952; line-height: 1.6;&quot;&gt;
+|continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="35" name="cover" tags="" position="575,75" size="100,100">{&lt;div style=&quot;text-align: center; margin-top: 5vh; font-family: sans-serif; color: #424952; line-height: 1.6;&quot;&gt;
 
   &lt;div style=&quot;font-size: 2em; font-weight: bold; margin-bottom: 5px;&quot;&gt;
     Team conflict management
@@ -308,7 +332,36 @@ AI-generated images by Google Gemini&lt;br&gt;
 
 
 
- </tw-passagedata></tw-storydata>
+ </tw-passagedata><tw-passagedata pid="36" name="Introduction" tags="" position="575,200" size="100,100">(set: $score to 0)
+{You are part of a four-person team conducting a small research study. Your teammates, sitting across from you, are:
+* Chad, a white man with experience in chemical engineering
+* Monica, a Latina woman with experience in mechanical engineering
+* Amar, a south Asian man from India with experience in civil engineering and strong math skills
+&lt;img src=&quot;images/introduction.jpeg&quot; alt=&quot;Your three teammates are sitting at a table smiling at you.&quot;&gt;
+&#39;&#39;Now that you&#39;ve all introduced yourselves, how do you suggest the team get started?&#39;&#39;
+(link: &quot;Let&#39;s choose a leader&quot;)[
+  (go-to: &quot;GG&quot;)]
+  (link: &quot;Let&#39;s create a team charter&quot;)[ (set: $score to it + 3) (go-to: &quot;FF&quot;) ]
+  (link: &quot;Say nothing and let someone else take the lead&quot;)[ (set: $score to it - 1) (go-to: &quot;A&quot;) ]
+(display: &quot;scoreboard&quot;)
+}</tw-passagedata><tw-passagedata pid="37" name="scoreboard" tags="" position="375,50" size="100,100">{
+(if: (passage:)&#39;s name is not &quot;cover&quot; and (passage:)&#39;s name is not &quot;credits&quot; and (passage:)&#39;s name is not &quot;EE&quot;)[
+  &lt;div style=&quot;background-color: #424952; color: #F1E9D2; font-size: 24pt; font-weight: bold; font-family: sans-serif; border-radius: 4px; margin-top: 5px; margin-bottom: 5px; width: 100%; box-sizing: border-box; height: 44px; display: flex; align-items: center; justify-content: center;&quot;&gt;
+    &lt;span style=&quot;margin-right: 15px;&quot;&gt;Team psychological safety score:&lt;/span&gt;
+    &lt;span id=&quot;score-area&quot;&gt;$score&lt;/span&gt;
+  &lt;/div&gt;
+]
+}</tw-passagedata><tw-passagedata pid="38" name="GG" tags="" position="750,125" size="100,100">{You begin to discuss who might lead the team. Chad and Monica both volunteer.
+&lt;img src=&quot;images/E_L_discussing_Amar_plan.jpeg&quot; alt=&quot;Chad and Monica both stand up to volunteer.&quot;&gt;
+&#39;&#39;What do you do?&#39;&#39;
+(link: &quot;Pick Chad - he seems very confident about his abilities&quot;)[ (set: $score to it + 0) (go-to: &quot;A&quot;) ]
+(link: &quot;Pick Monica - she seems really excited and enthusiastic&quot;)[ (set: $score to it + 0) (go-to: &quot;B1&quot;) ]
+(link: &quot;Ask Chad and Monica about their qualifications and leadership approaches&quot;)[ (set: $score to it + 1) (go-to: &quot;C&quot;) ]
+(display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="39" name="FF" tags="" position="700,25" size="100,100">{Your team agrees that you need a team charter. After some discussion, Amar sets up a shared document you can all access. Together you create some team norms about respectful communication, roles and responsibilities, and what you&#39;ll do in case of conflict. 
+&lt;img src=&quot;images/FFCharter.jpeg&quot; alt=&quot;A team charter is displayed on a laptop.&quot;&gt;
+Next, your team needs to select a leader. 
+|continue&gt;[[[Continue-&gt;GG]]]
+(display: &quot;scoreboard&quot;)}</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
