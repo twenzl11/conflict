@@ -1,5 +1,5 @@
-Conflict Management:
-a game that lets learners choose their own conflict management adventure
+Team Conflict Management:
+A game designed to help team members recognize and manage conflict before it's too late! 
 
 Credits and Acknowledgements:
 
