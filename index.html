@@ -305,12 +305,13 @@ The next day, you find out he quit the team.
 &#39;&#39;What do you do? &#39;&#39;
 (link: &quot;Dive the extra work between the three of you&quot;)[ (set: $score to it -2) (go-to: &quot;T1&quot;) ]
 (link: &quot;Call Amar and talk with him about how important his expertise is and that you value his work. Ask him to rejoin the team&quot;)[ (set: $score to it + 4) (go-to: &quot;Z&quot;) ]
-(display: &quot;scoreboard&quot;)}
+}
 </tw-passagedata><tw-passagedata pid="22" name="V" tags="" position="900,900" size="100,100">(set: $showFooter to true)(set: $pageNumber to 25)
 {Chad calms down when the group is willing to incorporate part of his idea into the research project. 
 &lt;img src=&quot;images/V_include_Chad.jpeg&quot; alt=&quot;Monica and Amar smile at Chad, who is smiling back.&quot;&gt;
 |continue&gt;[[[Continue-&gt;L1]]]
 }</tw-passagedata><tw-passagedata pid="23" name="W" tags="" position="500,975" size="100,100">(set: $showFooter to true)(set: $pageNumber to 26)
+(set: $score to $score - 5)
 {Chad explodes with rage, calls everyone stupid, and quits the group. Unfortunately, he was the only chemical engineer on the team, and without him, the project fails. 
 &lt;img src=&quot;images/W_Chad_storms_out.jpeg&quot; alt=&quot;Chad storms out of the room as Monica and Amar look on.&quot;&gt;
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
@@ -337,7 +338,8 @@ The next day, you find out he quit the team.
 &lt;img src=&quot;images/ZAmarAgrees.jpeg&quot; alt=&quot;Amar leans against a wall in a hallway. He looks happy.&quot;&gt;
 
 |continue&gt;[[[Continue-&gt;BB]]]
-}</tw-passagedata><tw-passagedata pid="27" name="T1" tags="" position="375,975" size="100,100">{As the remaining three of you work on the project, you realize Amar was the only one who knew how to do the necessary calculations. The research project fails. 
+}</tw-passagedata><tw-passagedata pid="27" name="T1" tags="" position="375,975" size="100,100">(set: $score to $score - 5)
+{As the remaining three of you work on the project, you realize Amar was the only one who knew how to do the necessary calculations. The research project fails. 
 &lt;img src=&quot;images/U_T1_No_Amar.jpeg&quot; alt=&quot;Chad and Monica are working at the table.&quot; &gt;
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
 (display: &quot;scoreboard&quot;)}
@@ -359,7 +361,7 @@ Then you &#39;&#39;ask for the other&#39;s path&#39;&#39;. Chad says the group i
 &lt;img src=&quot;images/AASTATE1.jpeg&quot; alt=&quot;Chad and Monica are both facing forward at the table. Monica is talking. Amar looks on.&quot;&gt;
 |continue&gt;[[[Continue-&gt;DD]]]
 }</tw-passagedata><tw-passagedata pid="30" name="CC" tags="" position="250,975" size="100,100">(set: $showFooter to true)(set: $pageNumber to 32)
-
+(set: $score to $score - 5)
 {The fight escalates until a passing professor intervenes. Chad and Monica both have to meet with the Dean before they are allowed to conduct research again. The research group disbands and the project fails. 
 &lt;img src=&quot;images/CC_professor_intervenes.jpeg&quot; alt=&quot;Monica and Chad are both standing and arguing. Amar is seated and looks distraught. Professor Brown has just walked in and looks horrified.&quot;&gt;
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
