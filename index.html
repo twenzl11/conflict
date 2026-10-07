@@ -243,7 +243,7 @@ tw-hook[name="win"] {
 }</tw-passagedata><tw-passagedata pid="11" name="L" tags="" position="800,500" size="100,100">(set: $showFooter to true)(set: $pageNumber to 13)
 {The team agrees to your suggestion and adopts Amar&#39;s plan with the added element from Chad&#39;s plan. The meeting ends. 
 &lt;img src=&quot;images/E_L_discussing_Amar_plan.jpeg&quot; alt=&quot;Your teammates are standing in front of a whiteboard full of writing.&quot;&gt;
-|continue&gt;[[[Continue-&gt;L1]]]
+|continue&gt;[[[Continue-&gt;LL]]]
 }</tw-passagedata><tw-passagedata pid="12" name="M" tags="" position="550,525" size="100,100">(set: $showFooter to true)(set: $pageNumber to 15)
 {The team votes to adopt Chad&#39;s idea. Amar is really unhappy about this. 
 &lt;img src=&quot;images/M_vote_Chad_idea.jpeg&quot; alt=&quot;Chad and Monica have their arms raised to vote for Chad&#39;s idea. Amar looks unhappy.&quot;&gt;
@@ -337,7 +337,7 @@ The next day, you find out he quit the team.
 {Amar thanks you and decides to continue participating in the project.
 &lt;img src=&quot;images/ZAmarAgrees.jpeg&quot; alt=&quot;Amar leans against a wall in a hallway. He looks happy.&quot;&gt;
 
-|continue&gt;[[[Continue-&gt;BB]]]
+|continue&gt;[[[Continue-&gt;NN]]]
 }</tw-passagedata><tw-passagedata pid="27" name="T1" tags="" position="375,975" size="100,100">(set: $score to $score - 5)
 {As the remaining three of you work on the project, you realize Amar was the only one who knew how to do the necessary calculations. The research project fails. 
 &lt;img src=&quot;images/U_T1_No_Amar.jpeg&quot; alt=&quot;Chad and Monica are working at the table.&quot; &gt;
@@ -352,6 +352,8 @@ The next day, you find out he quit the team.
 
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
 (display: &quot;scoreboard&quot;)}</tw-passagedata><tw-passagedata pid="29" name="AA" tags="" position="175,650" size="100,100">(set: $showFooter to true)(set: $pageNumber to 30)
+You arrive to the next meeting and Monica and Chad are sitting at opposite ends of the table looking annoyed. 
+
 First, you ask Monica and Chad to &#39;&#39;share their facts&#39;&#39;. Chad calmly states that SOMEONE needs to take notes. Monica states that ANYONE could take notes, not just her. 
 
 Next you ask Monica to &#39;&#39;tell her story&#39;&#39;. Monica says anyone could take notes and there&#39;s no reason she should be the one to do it. She was offended when Chad said only women can take notes.
@@ -462,7 +464,68 @@ Next, your team needs to select a leader.
   &lt;/div&gt;
 
 &lt;/div&gt;
-}</tw-passagedata></tw-storydata>
+}</tw-passagedata><tw-passagedata pid="41" name="LL" tags="" position="200,1125" size="100,100">(set: $showFooter to true)(set: $pageNumber to 39)
+
+{Over the last few weeks, Chad hasn&#39;t been very invested in the team&#39;s work. His contributions have been minimal, and what he has turned in has been sloppy and unedited.
+&lt;img src=&quot;LL_ChadSloppy.jpeg&quot; alt=&quot;Your teammates are all sitting at the table. Chad looks disorganized and has papers all around him.&quot;&gt;
+&#39;&#39;What do you do? 
+&#39;&#39;
+(link: &quot;Try talking to Chad to motivate him to do better work&quot;)[ (set: $score to + 3) (go-to: &quot;KK&quot;) ]
+(link: &quot;Tell Chad his work is awful and he needs to step it up if he wants to stay on the team&quot;)[ (set: $score to it - 5) (go-to: &quot;W&quot;) ]
+(link: &quot;Take on the extra work yourself&quot;)[ (set: $score to it - 3)(go-to: &quot;MM&quot;) ]
+}</tw-passagedata><tw-passagedata pid="42" name="KK" tags="" position="225,1275" size="100,100">(set: $showFooter to true)(set: $pageNumber to 40)
+
+You decide to try a technique called motivational interviewing to see if you get Chad to improve his performance. The technique is represented by the acronym OARS: Open questions, Affirmations, Reflective listening, and Summaries.
+
+{You start by asking Chad how he feels the project is going. When he says he&#39;s not all that interested in it since you didn&#39;t use all of his proposal, you affirm how important Chad&#39;s expertise is to the team, especially on the part of his idea that the team adopted. Chad says he feels like Monica and Amar don&#39;t really like him or listen to his ideas, and he&#39;s just kind of given up and is doing the minimum on the project. 
+
+&lt;img src=&quot;KK_ChadMI.jpeg&quot; alt=&quot;Chad is alone at the table looking at you. He has papers all around him and he looks disheartened.&quot;&gt;
+
+|continue&gt;[[[Continue-&gt;KK1]]]
+}</tw-passagedata><tw-passagedata pid="43" name="KK1" tags="" position="325,1275" size="100,100">(set: $showFooter to true)(set: $pageNumber to 42)(set: $score to + 3)
+
+{You tell Chad you understand that he&#39;s feeling a bit left out and rejected by the team after experiencing some conflict with your teammates early in the project. You affirm that he has some really good ideas and that you really need his chemical engineering knowledge to assure the project is successful. You offer to talk with your teammates about being more inclusive going forward. Chad says he&#39;d like to think about it and will get back to you before the next meeting.  
+&lt;img src=&quot;KK1_ChadMotivates,jpeg&quot; alt=&quot;Chad sits at the table looking at you. He looks a bit more hopeful at the end of the conversation.&quot;&gt;
+
+|continue&gt;[[[Continue-&gt;KK2]]]
+}</tw-passagedata><tw-passagedata pid="44" name="KK2" tags="" position="425,1275" size="100,100">(set: $showFooter to true)(set: $pageNumber to 43)(set: $score to + 2)
+Chad texts you before the next meeting and says he really does want to participate and do good work, and would appreciate if you&#39;d talk to Monica and Amar about hearing him out when he has new ideas. You talk to your other teammates, and they agree to try to make Chad feel more welcome. After this, you notice Chad&#39;s work quality improves. 
+&lt;img src=&quot;images/KK2_AllWorking.jpeg&quot; alt=&quot;All three of your teammates sit at the table working together.&quot;&gt;
+|continue&gt;[[[Continue-&gt;BB]]]
+</tw-passagedata><tw-passagedata pid="45" name="MM" tags="" position="300,1125" size="100,100">(set: $showFooter to true)(set: $pageNumber to 41)
+
+{You try to take on Chad&#39;s part of the project, but you don&#39;t have the chemical engineering background necessary and are unable to figure it out. Without this, the project fails. 
+&lt;img src=&quot;MM_ChadQuit.jpeg&quot; alt=&quot;Monica and Amar are sitting at the table looking disappointed.&quot;&gt;
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)}
+</tw-passagedata><tw-passagedata pid="46" name="NN" tags="" position="900,1175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 39)
+{As you continue working on the project, you notice that Monica has been turning her work in very late, and she&#39;s missed two of the last three meetings. 
+&lt;img src=&quot;NN_NoMonica.jpeg&quot; alt=&quot;Chad and Amar are both working at the table. Monica is not at the meeting.&quot;&gt;
+&#39;&#39;What do you do?
+&#39;&#39;
+(link: &quot;Email Monica about the next deadline&quot;)[ (set: $score to - 1) (go-to: &quot;HH&quot;) ]
+(link: &quot;Call Monica and make sure she is okay&quot;)[ (set: $score to + 3) (go-to: &quot;II&quot;) ]
+(link: &quot;Do nothing&quot;)[ (set: $score to it - 5)(go-to: &quot;PP&quot;) ]
+}
+</tw-passagedata><tw-passagedata pid="47" name="II" tags="" position="900,1275" size="100,100">(set: $showFooter to true)(set: $pageNumber to 37)
+
+{Monica lets you know that her grandmother has been in and out of the hospital over the last few weeks. Because Monica&#39;s mom is always at the hospital, Monica has to watch her two younger brothers and hasn&#39;t had much time to work on the project. She isn&#39;t able to go to the lab on campus to conduct the experiment she&#39;s been assigned. 
+&lt;img src=&quot;images/II_MonicaHome.jpeg&quot; alt=&quot;Monica is in her living room with two younger brothers running around, toys strewn everywhere.&quot;&gt;
+&#39;&#39;What do you do?&#39;&#39;
+(link: &quot;Trade assignments with her - you&#39;ll conduct the experiment on campus, and Monica will work on the literature review from home.&quot;)[ (set: $score to +3) (go-to: &quot;OO&quot;) ]
+(link: &quot;Tell Monica she needs to figure something out&quot;)[ (set: $score to - 5) (go-to: &quot;JJ&quot;) ]
+
+}</tw-passagedata><tw-passagedata pid="48" name="HH" tags="" position="800,1275" size="100,100">(set: $showFooter to true)(set: $pageNumber to 36)(set: $score to - 2)
+{Monica doesn&#39;t respond and misses the deadline completely. 
+|continue&gt;[[[Continue-&gt;JJ]]]
+}
+</tw-passagedata><tw-passagedata pid="49" name="JJ" tags="" position="800,1400" size="100,100">(set: $showFooter to true)(set: $pageNumber to 38)
+Without Monica&#39;s help, the project fails. 
+&lt;img src=&quot;JJ_NoMonica.jpeg&quot; alt=&quot;Chad and Amar sit at the table, looking disappointed.&quot;&gt;
+|continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
+(display: &quot;scoreboard&quot;)</tw-passagedata><tw-passagedata pid="50" name="OO" tags="" position="900,1400" size="100,100">(set: $showFooter to true)(set: $pageNumber to 45)
+Monica thanks you for understanding and agrees to the trade. She is able to complete the literature review on time, and you get the experiment done.  
+|continue&gt;[[[Continue-&gt;BB]]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
