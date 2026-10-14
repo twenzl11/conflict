@@ -38,7 +38,7 @@ img {
    width: 60%; 
   height: auto;
 } 
-/* 1. Eliminate default Harlowe margins and padding from the main layout */
+* 1. Eliminate default Harlowe margins and padding from the main layout */
 tw-story {
     padding-top: 0px !important;
     margin-top: 0px !important;
@@ -47,32 +47,42 @@ tw-story {
 tw-passage {
     padding-top: 0px !important;
     margin-top: 0px !important;
+    padding-left: 50px !important; /* Creates a safe gutter on the left so text clears the buttons */
 }
 
-/* 2. Fix the back buttons by floating them so they take up ZERO vertical height */
+/* 2. Float the back buttons cleanly in the front layer */
 tw-sidebar {
-    position: absolute !important;  /* Stops the sidebar from pushing text down */
-    top: 10px !important;          /* Keeps it near the top left corner */
-    left: 20px !important;
+    position: absolute !important;  
+    top: 15px !important;          
+    left: 10px !important;
     display: flex !important;
     flex-direction: row !important;
     width: auto !important;
+    z-index: 9999 !important;      /* Forces the back buttons to stay on top of all text and boxes */
 }
 
-/* 3. Allow scrolling ONLY when needed (fixes the Intro page) */
+/* 3. Ensure easy interaction rules for the back buttons */
+tw-icon {
+    cursor: pointer !important;
+    opacity: 0.6 !important;
+}
+tw-icon:hover {
+    opacity: 1 !important;
+}
+
+/* 4. Allow scrolling ONLY when needed (keeps Intro page accessible) */
 html, body, tw-story {
     height: 100% !important;
     overflow-y: auto !important; 
 }
 
-/* 4. Keep images constrained so they don't blow past the screen fold */
+/* 5. Keep images constrained so choices and page numbers fit on one screen */
 tw-passage img {
     max-height: 35vh !important;  /* Caps image height at 35% of the viewport */
     width: auto !important;       /* Maintains aspect ratio */
     display: block;
     margin: 10px auto;            /* Centers image neatly */
 }
-
 
 /* --- ONLY TARGETS LINKS INSIDE THE COVER CONTAINER --- */
 .cover-button-container tw-link {
