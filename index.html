@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Team conflict management" startnode="39" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
-   1. GLOBAL STAGE WIDTH & REMOVING PASSAGE PADDING SQUEEZE
+   1. MAIN PAGE STAGE RESET (SHATTERS THE NATIVE TEXT SQUEEZE)
    ========================================================================== */
 html, body {
   width: 100% !important;
@@ -18,14 +18,14 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
   height: 100% !important;
-  overflow-y: auto !important; /* Normal, comfortable browser scrolling */
+  overflow-y: auto !important; /* Normal, responsive browser scrolling */
 }
 
 tw-story {
-  width: 95% !important;          /* Opens base canvas wide open */
-  max-width: 1200px !important;   /* Comfortable desktop line length tracking */
-  margin: 0 auto !important;      /* Centers the game card layout container smoothly */
-  padding: 2% 4% !important;      /* Replaces Harlowe's 20% side-padding layout bottleneck */
+  width: 95% !important;          /* Expands base container wide across the monitor */
+  max-width: 1200px !important;   /* Comfortable desktop line length reading bounds */
+  margin: 0 auto !important;      /* Beautifully centers your game canvas */
+  padding: 2% 4% !important;      /* Replaces Harlowe's default 20% padding squeeze */
   box-sizing: border-box !important;
   display: block !important;       
   
@@ -44,16 +44,13 @@ tw-passage {
   width: 100% !important;         
   max-width: 100% !important;    
   display: block !important;
-  
-  /* Padding-left clears back arrows. Padding-right shields text from the static square box */
-  padding-left: 100px !important; 
-  padding-right: 90px !important; 
+  padding-left: 100px !important; /* Left gutter protects words from hitting back arrows */
+  padding-right: 90px !important; /* Right gutter reserves a dedicated lane for your static box */
   padding-top: 0px !important;
   margin-top: 0px !important;
   box-sizing: border-box !important;
 }
 
-/* Overrides internal Harlowe em tags to permanently unlock text squeeze margins */
 tw-passage p, .scene-text p, tw-passage span:not(#score-area), tw-story tw-passage p {
   width: 100% !important;
   max-width: 100% !important;    
@@ -64,43 +61,38 @@ tw-passage p, .scene-text p, tw-passage span:not(#score-area), tw-story tw-passa
 }
 
 /* ==========================================================================
-   2. ELIMINATE TIMING DELAYS & LAG (LOCKS PAGE BOX INSTANTLY TO TOP RIGHT)
+   2. FIXED POSITION OVERRIDE (ELIMINATES PAGE NUMBER HOPPING GLITCH)
    ========================================================================== */
-/* TARGET ALL DYNAMIC HOOK AND TRANSITION WRAPPERS TO FORCE ABSOLUTE BOUNDS IMMEDIATELY */
-.transition-in tw-include[type="footer"],
-tw-passage tw-include[type="footer"],
-tw-include[type="footer"],
-[data-t8n^=dissolve] tw-include[type="footer"] {
+/* Using fixed positioning completely disconnects the counter from Harlowe's laggy rendering stack */
+tw-include[type="footer"] {
   display: block !important;      
-  position: absolute !important;  
-  top: 15px !important;
-  right: 25px !important;        
-  z-index: 9999 !important;
-  width: 42px !important;        /* Match the exact box dimensions to lock its wrapper width */
-  height: 42px !important;
+  position: fixed !important;     /* Locks it globally to the viewport window */
+  top: 30px !important;
+  right: calc(5vw + 25px) !important; /* Dynamically balances position along with widescreen frames */
+  z-index: 99999 !important;      /* Elevates above all transition layers */
+  width: auto !important;
+  height: auto !important;
   margin: 0 !important;
   padding: 0 !important;
   
-  /* Hard clear on all Harlowe transition behaviors to completely stop the hopping effect */
-  -webkit-transition: none !important;
-  transition: none !important;
-  -webkit-animation: none !important;
-  animation: none !important;
-  -webkit-transform: none !important;
-  transform: none !important;
+  /* Blocks all built-in fade/slide animation calculations entirely */
+  -webkit-transition: none !important; transition: none !important;
+  -webkit-animation: none !important; animation: none !important;
+  -webkit-transform: none !important; transform: none !important;
 }
 
-/* Overrides Harlowe's core fade-in processing loop for a 0ms instant display deployment */
-.transition-in[data-t8n^=dissolve] tw-include[type="footer"],
-.transition-in tw-include[type="footer"] {
-  -webkit-animation: appear 0ms step-start !important;
-  animation: appear 0ms step-start !important;
+/* Hard reset targeting Harlowe's active transition animation state */
+.transition-in tw-include[type="footer"],
+[data-t8n^=dissolve] tw-include[type="footer"] {
+  position: fixed !important;
+  top: 30px !important;
+  right: calc(5vw + 25px) !important;
   opacity: 1 !important;
 }
 
 .header-page-box {
   background-color: #424952 !important; /* Matches your gray psychological banner background */
-  color: #F1E9D2 !important;            /* Clean off-white text color */
+  color: #F1E9D2 !important;            /* Crisp off-white text color */
   font-family: sans-serif;
   font-size: 1.1rem !important;
   font-weight: bold !important;
@@ -117,7 +109,23 @@ tw-include[type="footer"],
 }
 
 /* ==========================================================================
-   3. ARROW NAVIGATION POSITIONING & SCALING
+   3. RESPONSIBLE IMAGE CONTROLS (FIXES OVERSIZED PHOTOS)
+   ========================================================================== */
+/* Direct rules to prevent your graphics from inflating past the fold */
+img, .scene-photo img {
+  display: block !important;
+  margin: 15px auto !important;
+  border: 2px solid #032B44 !important;
+  border-radius: 4px !important;
+  
+  width: auto !important;
+  max-width: 80% !important;     /* Fits comfortably on any desktop scale */
+  height: auto !important;
+  max-height: 38vh !important;   /* Strict ceiling prevents massive layout blowouts */
+} 
+
+/* ==========================================================================
+   4. SIDEBAR NAVIGATION ARROWS
    ========================================================================== */
 tw-sidebar {
   position: absolute !important;
@@ -148,7 +156,7 @@ tw-icon:hover {
 }
 
 /* ==========================================================================
-   4. NEW SIDE-BY-SIDE FLEXBOX GRID LAYOUT
+   5. NEW SIDE-BY-SIDE GRID LAYOUT COMPONENTS
    ========================================================================== */
 .scene-container {
   display: flex !important;
@@ -172,29 +180,9 @@ tw-icon:hover {
   justify-content: center !important;
 }
 
-.scene-photo img {
-  width: 100% !important;
-  max-width: 450px !important;
-  height: auto !important;
-  border: 2px solid #032B44 !important;
-  border-radius: 4px !important;
-  margin: 0 !important;
-  display: block !important;
-}
-
 /* ==========================================================================
-   5. PASSAGE OPTIONS & INTERACTIVE CHOICE BLOCKS
+   6. CHOICE LINKS & ACTION BUTTONS
    ========================================================================== */
-img {
-  display: block !important;
-  margin: 15px auto !important;
-  border: 2px solid #032B44 !important;
-  border-radius: 4px !important;
-  width: auto !important;
-  max-width: 80% !important;     
-  height: auto !important;
-} 
-
 tw-link {
   color: #06402B;
 }
@@ -226,7 +214,7 @@ tw-passage tw-link:hover {
 }
 
 /* ==========================================================================
-   6. FRONT COVERS, SYSTEM CONTINUES, BANNER WIDTHS
+   7. COVERS, CONTINUE WRAPPERS, SYSTEM BANNER WIDTHS
    ========================================================================== */
 .cover-button-container tw-link, tw-hook[name="continue"] tw-link {
   display: inline-block !important;
@@ -284,7 +272,6 @@ tw-hook[name="win"] {
   margin-bottom: 5px;
 }
 
-/* Ensure duplicate system headers do not interfere */
 tw-include[type="header"] {
   display: none !important;
 }
