@@ -288,7 +288,25 @@ tw-passage div[style*="background-color: #424952"] span {
   display: inline !important;
   float: none !important;
   margin-left: 10px !important; /* Balanced layout spacing */
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
+}
+/* ==========================================================================
+   SCOREBOARD ACCENT ROW REPAIR (SNAPS NUMBER BACK NEXT TO TEXT)
+   ========================================================================== */
+/* Isolates ONLY the span layers inside the dark gray scoreboard bar */
+tw-passage div[style*="background-color: #424952"] span {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Forces the numeric calculation area container to stay inline */
+#score-area {
+  display: inline-block !important;
+  margin-left: 8px !important; /* Perfect visual gap spacing */
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;br&gt;&#39;&#39;What do you do?&#39;&#39;
 
