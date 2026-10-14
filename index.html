@@ -38,34 +38,38 @@ img {
    width: 60%; 
   height: auto;
 } 
-/* 1. Eliminate default Harlowe margins/padding and widen the text bounds */
+/* 1. Expand the overall game board layout */
 tw-story {
     padding-top: 0px !important;
     margin-top: 0px !important;
-    width: 85% !important;        /* Broadens the passage wrap width so text spreads out horizontally */
-    max-width: 1000px !important;  /* Stops the text lines from getting aggressively long on desktop screens */
-    margin-left: auto !important;  /* Perfect horizontal balance alignment */
+    width: 90% !important;         /* Utilizes 90% of screen width */
+    max-width: 1000px !important;  /* Prevents overly long, unreadable text lines on huge monitors */
+    margin-left: auto !important;  
     margin-right: auto !important;
 }
 
+/* 2. Unconstrain the text container to fix the tight wrapping */
 tw-passage {
     padding-top: 0px !important;
     margin-top: 0px !important;
-    padding-left: 70px !important; /* Widen the gutter to guarantee text entirely clears absolute buttons */
+    width: 100% !important;        /* Forces the text container to expand out completely */
+    max-width: 100% !important;    /* Breaks Harlowe's default narrow restrictions */
+    padding-left: 60px !important; /* Perfect left gutter: gives back buttons exact clearing room */
+    box-sizing: border-box !important;
 }
 
-/* 2. Float the back buttons cleanly in the front layer */
+/* 3. Float the back buttons cleanly in the top-left gutter margin */
 tw-sidebar {
     position: absolute !important;  
-    top: 15px !important;          
-    left: 10px !important;
+    top: 12px !important;          
+    left: 0px !important;          /* Anchors it cleanly outside the text baseline area */
     display: flex !important;
     flex-direction: row !important;
     width: auto !important;
-    z-index: 9999 !important;      /* Layer override to guarantee button priority */
+    z-index: 9999 !important;      /* Ensures buttons stack above color elements and boxes */
 }
 
-/* 3. Ensure easy interaction rules for the back buttons */
+/* 4. Button interaction styling rules */
 tw-icon {
     cursor: pointer !important;
     opacity: 0.6 !important;
@@ -74,18 +78,18 @@ tw-icon:hover {
     opacity: 1 !important;
 }
 
-/* 4. Allow scrolling ONLY when needed (keeps long paragraphs accessible) */
+/* 5. Safe global scrolling behaviors (helps text-heavy slides like the Intro) */
 html, body {
     height: 100% !important;
     overflow-y: auto !important; 
 }
 
-/* 5. Keep images constrained so choices and page numbers fit on one screen */
+/* 6. Dynamic image constraints to keep choices & footer unified on one screen */
 tw-passage img {
-    max-height: 35vh !important;  /* Caps image height at 35% of the viewport */
-    width: auto !important;       /* Maintains aspect ratio */
+    max-height: 35vh !important;   /* Hard ceiling: image occupies at most 35% of display height */
+    width: auto !important;        /* Retains pristine aspect ratio formatting */
     display: block;
-    margin: 10px auto;            /* Centers image neatly */
+    margin: 15px auto;             /* Neatly centered with light separation margins */
 }
 
 /* --- ONLY TARGETS LINKS INSIDE THE COVER CONTAINER --- */
