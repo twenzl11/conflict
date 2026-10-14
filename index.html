@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
-   1. STAGE WIDTH & RESPONSIVE LAYOUT (FIXES SCROLL LOCK & TEXT SQUEEZE)
+   MASTER LAYOUT RESET (ELIMINATES THE TEXT SQUEEZE)
    ========================================================================== */
 html, body {
   width: 100% !important;
@@ -18,18 +18,16 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
   height: 100% !important;
-  overflow-y: auto !important; /* Re-enables safe scrolling across all pages */
+  overflow-y: auto !important;
 }
 
 tw-story {
-  width: 90% !important;          
-  max-width: 1100px !important;   /* Comfortable desktop max-width */
-  margin: 0 auto !important;
-  padding-top: 15px !important;
-  padding-bottom: 25px !important;
+  width: 100% !important;          
+  max-width: 100% !important;     
+  margin: 0 !important;
+  padding: 15px 0 25px !important;
   box-sizing: border-box !important;
-  
-  /* Your original background attributes */
+  display: block !important;       
   background-image: url("images/engBG.jpg");
   background-size: cover;
   background-position: center;
@@ -41,13 +39,11 @@ tw-story {
 }
 
 tw-passage {
-  width: 100% !important;         
-  max-width: 100% !important;    
+  width: 95% !important;           
+  max-width: 1300px !important;    
   display: block !important;
-  padding-left: 100px !important; /* Hard gutter: completely locks text away from the arrows */
-  padding-right: 20px !important;
-  padding-top: 0px !important;
-  margin-top: 0px !important;
+  margin: 0 auto !important;       
+  padding: 0 40px 0 100px !important;  
   box-sizing: border-box !important;
 }
 
@@ -55,13 +51,11 @@ tw-passage p {
   width: 100% !important;
   max-width: 100% !important;    
   line-height: 1.6 !important;
-  margin-top: 0.8em !important;
-  margin-bottom: 0.8em !important;
+  margin: 0.8em 0 !important;
+  display: block !important;
 }
 
-/* ==========================================================================
-   2. RE-STYLING ARROW CONTROLS (FIXES TEXT OVERLAP & SIZING)
-   ========================================================================== */
+/* Sidebar & Arrow Controls */
 tw-sidebar {
   position: absolute !important;
   top: 15px !important;
@@ -69,12 +63,11 @@ tw-sidebar {
   z-index: 9999 !important;       
   display: flex !important;
   flex-direction: row !important; 
-  gap: 15px !important;           /* Clean separation row between arrows */
-  width: 80px !important;        /* Capping width ensures arrows remain inside left gutter */
+  gap: 15px !important;           
+  width: 80px !important;        
   height: auto !important;
 }
 
-/* Large, clickable interface scaling for default Harlowe arrows */
 tw-icon, tw-icon.undo, tw-icon.redo {
   font-size: 2.2rem !important;  
   width: 35px !important;
@@ -90,56 +83,21 @@ tw-icon:hover {
   opacity: 1 !important;
 }
 
-/* ==========================================================================
-   3. RESPONSIBLE IMAGE SCALING
-   ========================================================================== */
+/* Image Scaling & Links */
 img {
   display: block !important;
   margin: 15px auto !important;
   border: 2px solid #032B44 !important;
   border-radius: 4px !important;
-  width: auto !important;
   max-width: 80% !important;
-  height: auto !important;
-  max-height: 35vh !important;   /* Dynamically limits height to preserve vertical space */
+  max-height: 35vh !important;   
 } 
-
-/* ==========================================================================
-   4. CRUSH THE GHOST FOOTER SPACE GAP
-   ========================================================================== */
-/* Closes up the massive empty gap right below your choice options */
-hr, tw-passage hr {
-  margin-top: 15px !important;   
-  margin-bottom: 5px !important;
-  clear: both !important;
-  border: 0;
-  border-top: 1px solid rgba(0,0,0,0.15) !important;
-}
-
-/* Forces the footer elements to anchor immediately under your choices */
-tw-passage span[style*="letter-spacing: 0.15em"] {
-  margin-top: 5px !important;
-  padding: 0 !important;
-  display: block !important;
-  text-align: center !important;
-}
-
-/* ==========================================================================
-   5. PASSAGE OPTIONS & TEXT INTERACTION LINKS
-   ========================================================================== */
-tw-link {
-  color: #06402B;
-}
-tw-link:hover {
-  color: #032B44;
-}
 
 tw-passage tw-link {
   display: block !important;
   max-width: 100% !important;    
   margin: 8px 0 !important;          
   padding: 12px 20px !important;       
-  text-align: left !important;         
   font-size: 1.1rem !important;
   line-height: 1.4 !important;
   color: #06402B !important;           
@@ -156,9 +114,6 @@ tw-passage tw-link:hover {
   padding-left: 28px !important;           
 }
 
-/* ==========================================================================
-   6. COVERS, SYSTEM HEADERS, CONTINUES
-   ========================================================================== */
 .cover-button-container tw-link, tw-hook[name="continue"] tw-link {
   display: inline-block !important;
   padding: 12px 30px !important;
@@ -170,13 +125,6 @@ tw-passage tw-link:hover {
   border-radius: 6px !important;           
   text-decoration: none !important;        
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
-}
-
-.cover-button-container tw-link:hover, tw-hook[name="continue"] tw-link:hover {
-  color: #ffffff !important;
-  background-color: #032B44 !important;    
-  border-color: #032B44 !important;
 }
 
 tw-hook[name="continue"] {
@@ -184,10 +132,6 @@ tw-hook[name="continue"] {
   text-align: center !important;
   width: 100% !important;
   margin: 25px auto !important;
-  clear: both !important; 
-}
-tw-hook[name="continue"] tw-link {
-  border-left: none !important;
 }
 
 tw-hook[name="win"] {
@@ -196,17 +140,7 @@ tw-hook[name="win"] {
   font-size: 2.5em !important;        
   font-weight: bold !important;       
   color: #D4AF37 !important;          
-  margin-top: 25px !important;        
-  margin-bottom: 15px !important;     
-  letter-spacing: 1px !important;     
-}
-
-.cover-title {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: #424952;
-  margin-top: 10vh; 
-  margin-bottom: 5px;
+  margin: 25px 0 15px !important;        
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;img src=&quot;images/A_Chad_orders_Karen.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad orders Monica to take notes and Monica looks unhappy.&quot;&gt;
