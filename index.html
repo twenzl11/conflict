@@ -9,24 +9,27 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================
-   1. GLOBAL PAGE LAYOUT & SCROLL FIXES
-   ========================================== */
+<tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
+   1. MASTER RESET: BREAKING HARLOWE'S INTERNAL SQUEEZE
+   ========================================================================== */
 html, body {
-  height: 100% !important;
-  overflow-y: auto !important; 
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  height: 100% !important;
+  overflow-y: auto !important; 
 }
 
 tw-story {
-  width: 90% !important;
-  max-width: 1100px !important; 
+  width: 95% !important;          /* Opens up the main game-board boundary */
+  max-width: 1200px !important; 
   margin: 0 auto !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
   box-sizing: border-box !important;
   
+  /* Your original background settings */
   background-image: url("images/engBG.jpg");
   background-size: cover;
   background-position: center;
@@ -38,23 +41,31 @@ tw-story {
 }
 
 tw-passage {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100% !important;         /* SMASHES the built-in 60% text container bottleneck */
+  max-width: 100% !important;    
   display: block !important;
-  padding-left: 65px !important; /* Gutter to keep text completely clear of back arrows */
+  padding-left: 70px !important;  /* Creates perfect horizontal clearance for absolute back buttons */
+  padding-right: 20px !important;
   padding-top: 0px !important;
   margin-top: 0px !important;
   box-sizing: border-box !important;
 }
 
-/* ==========================================
-   2. TWINE SIDEBAR & BACK BUTTONS LAYER FIX
-   ========================================== */
+/* Restricts individual text streams from sprawling into endless single lines on widescreen monitors */
+tw-passage p, tw-passage span:not(#score-area), tw-passage ul, tw-passage ol {
+  max-width: 900px !important;    /* Widened from 600px/800px so options rest higher up */
+  line-height: 1.6 !important;
+  display: block;
+}
+
+/* ==========================================================================
+   2. RE-POSITION SIDEBAR & LAYERING (FIXES OVERLAPPING BACK ARROWS)
+   ========================================================================== */
 tw-sidebar {
   position: absolute !important;
   top: 15px !important;
-  left: 0px !important;
-  z-index: 9999 !important; /* Forces buttons above custom graphics and headers */
+  left: 5px !important;
+  z-index: 9999 !important;       /* Forces arrows on top of custom color-blocks/score-bars */
   display: flex !important;
   flex-direction: row !important;
   width: auto !important;
@@ -68,25 +79,34 @@ tw-icon:hover {
   opacity: 1 !important;
 }
 
-/* ==========================================
-   3. RESPONSIBLE IMAGE SCALE (FIXES FOOTER PUSH)
-   ========================================== */
+/* ==========================================================================
+   3. RESPONSIBLE IMAGE BOUNDS (PULLS FOOTER PAGE NUMBERS INTO VIEW)
+   ========================================================================== */
 img {
   display: block !important;
   margin: 15px auto !important;
   border: 2px solid #032B44 !important;
   border-radius: 4px !important;
   
-  /* These limits prevent images from squeezing text or pushing footers off-screen */
+  /* Prevents image scaling bugs from snapping container sizes down */
   width: auto !important;
-  max-width: 80% !important;
+  max-width: 85% !important;
   height: auto !important;
-  max-height: 35vh !important; /* Restricts vertical size to 35% of the display viewport */
+  max-height: 35vh !important;    /* Forces image footprints to scale dynamically under the screen-fold */
 } 
 
-/* ==========================================
-   4. PASSAGE CHOICE LINKS & TEXT CONTROLS
-   ========================================== */
+/* ==========================================================================
+   4. PSYCHOLOGICAL SAFETY SCORE BANNER SYNC
+   ========================================================================== */
+tw-passage div[style*="background-color: #424952"] {
+  max-width: 900px !important;    /* Matches text block widths perfectly */
+  margin-left: 0 !important;      /* Aligns flush left with your text baseline */
+  border-radius: 6px !important;
+}
+
+/* ==========================================================================
+   5. PASSAGE CHOICE LINKS & CUSTOM BUTTON INTERFACES
+   ========================================================================== */
 tw-link {
   color: #06402B;
 }
@@ -96,7 +116,8 @@ tw-link:hover {
 
 tw-passage tw-link {
   display: block !important;
-  margin: 5px 0 !important;          
+  max-width: 900px !important;    /* Syncs block buttons with your text framework */
+  margin: 8px 0 !important;          
   padding: 12px 20px !important;       
   text-align: left !important;         
   font-size: 1.1rem !important;
@@ -115,9 +136,9 @@ tw-passage tw-link:hover {
   padding-left: 28px !important;           
 }
 
-/* ==========================================
-   5. SYSTEM / CONTINUE / COVER LINK CONTROLS
-   ========================================== */
+/* ==========================================================================
+   6. FRONT PAGE / CONTINUE CONTAINER / SYSTEM OVERRIDES
+   ========================================================================== */
 .cover-button-container tw-link {
   display: inline-block !important;
   padding: 12px 30px !important;
@@ -166,9 +187,6 @@ tw-hook[name="continue"] tw-link:hover {
   border-color: #032B44 !important;
 }
 
-/* ==========================================
-   6. CELEBRATION TEXT STYLE
-   ========================================== */
 tw-hook[name="win"] {
   display: block !important;
   text-align: center !important;     
@@ -180,9 +198,6 @@ tw-hook[name="win"] {
   letter-spacing: 1px !important;     
 }
 
-/* ==========================================
-   7. FRONT PAGE STYLING CUSTOM OVERRIDES
-   ========================================== */
 .cover-wrapper {
   max-width: 800px; 
   margin: 0 auto;
@@ -232,19 +247,6 @@ tw-hook[name="win"] {
   font-size: 0.8rem;
   color: #718096;
   line-height: 1.5;
-}
-/* Tighten up text blocks so paragraphs don't stretch into massive, hard-to-read single lines */
-tw-passage p, tw-passage span, tw-passage ul, tw-passage ol {
-    max-width: 800px !important;
-    line-height: 1.6 !important;
-}
-
-/* Center your custom score banner beautifully within the widened screen frame */
-tw-passage div[style*="background-color: #424952"] {
-    max-width: 800px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    border-radius: 6px !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;img src=&quot;images/A_Chad_orders_Karen.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad orders Monica to take notes and Monica looks unhappy.&quot;&gt;
