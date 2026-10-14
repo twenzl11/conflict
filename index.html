@@ -9,93 +9,115 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================
+   1. GLOBAL PAGE LAYOUT & SCROLL FIXES
+   ========================================== */
+html, body {
+  height: 100% !important;
+  overflow-y: auto !important; 
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+tw-story {
+  width: 90% !important;
+  max-width: 1100px !important; 
+  margin: 0 auto !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  box-sizing: border-box !important;
   
   background-image: url("images/engBG.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
   background-color: #ffffff;
   color: #424952;
   font-family: sans-serif;
 }
+
+tw-passage {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  padding-left: 65px !important; /* Gutter to keep text completely clear of back arrows */
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================
+   2. TWINE SIDEBAR & BACK BUTTONS LAYER FIX
+   ========================================== */
+tw-sidebar {
+  position: absolute !important;
+  top: 15px !important;
+  left: 0px !important;
+  z-index: 9999 !important; /* Forces buttons above custom graphics and headers */
+  display: flex !important;
+  flex-direction: row !important;
+  width: auto !important;
+}
+
+tw-icon {
+  cursor: pointer !important;
+  opacity: 0.6 !important;
+}
+tw-icon:hover {
+  opacity: 1 !important;
+}
+
+/* ==========================================
+   3. RESPONSIBLE IMAGE SCALE (FIXES FOOTER PUSH)
+   ========================================== */
+img {
+  display: block !important;
+  margin: 15px auto !important;
+  border: 2px solid #032B44 !important;
+  border-radius: 4px !important;
+  
+  /* These limits prevent images from squeezing text or pushing footers off-screen */
+  width: auto !important;
+  max-width: 80% !important;
+  height: auto !important;
+  max-height: 35vh !important; /* Restricts vertical size to 35% of the display viewport */
+} 
+
+/* ==========================================
+   4. PASSAGE CHOICE LINKS & TEXT CONTROLS
+   ========================================== */
 tw-link {
   color: #06402B;
 }
 tw-link:hover {
   color: #032B44;
 }
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 2px solid #032B44;
-  border-radius: 4px;
-   width: 60%; 
-  height: auto;
-} 
-/* 1. Smash the engine's hardcoded global layout width constraints */
-html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100% !important;
-    overflow-y: auto !important; 
+
+tw-passage tw-link {
+  display: block !important;
+  margin: 5px 0 !important;          
+  padding: 12px 20px !important;       
+  text-align: left !important;         
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  color: #06402B !important;           
+  border-left: 4px solid #06402B !important; 
+  background-color: rgba(6, 64, 43, 0.03) !important; 
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
 }
 
-/* 2. Target the master container where the 60% squeeze originates */
-tw-story {
-    width: 90% !important;         /* Force it to use 90% of the display window */
-    max-width: 1100px !important;  /* Keeps sentences comfortable to skim on giant screens */
-    margin: 0 auto !important;      /* Centers the game layout beautifully */
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
+tw-passage tw-link:hover {
+  color: #ffffff !important;
+  background-color: #032B44 !important;    
+  border-left-color: #032B44 !important;   
+  padding-left: 28px !important;           
 }
 
-/* 3. Force the passage boundaries to open completely */
-tw-passage {
-    width: 100% !important;        
-    max-width: 100% !important;    
-    display: block !important;
-    padding-left: 65px !important; /* Safety room so absolute back buttons don't clip text */
-    padding-top: 0px !important;
-    margin-top: 0px !important;
-    box-sizing: border-box !important;
-}
-
-/* 4. Layer the back buttons completely outside the open text box */
-tw-sidebar {
-    position: absolute !important;  
-    top: 15px !important;          
-    left: 0px !important;          
-    display: flex !important;
-    flex-direction: row !important;
-    width: auto !important;
-    z-index: 9999 !important;      
-}
-
-tw-icon {
-    cursor: pointer !important;
-    opacity: 0.6 !important;
-}
-tw-icon:hover {
-    opacity: 1 !important;
-}
-
-/* 5. Fluid image scaling to keep game mechanics and footer numbers unified */
-tw-passage img {
-    max-height: 35vh !important;   /* Hard cap: images take up at most 35% of the window height */
-    width: auto !important;        /* Retains pristine aspect ratio formatting */
-    display: block !important;
-    margin: 12px auto !important;  /* Centers images nicely */
-}
-
-/* --- ONLY TARGETS LINKS INSIDE THE COVER CONTAINER --- */
+/* ==========================================
+   5. SYSTEM / CONTINUE / COVER LINK CONTROLS
+   ========================================== */
 .cover-button-container tw-link {
   display: inline-block !important;
   padding: 12px 30px !important;
@@ -110,38 +132,12 @@ tw-passage img {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-/* Hover state only for the cover button */
 .cover-button-container tw-link:hover {
   color: #ffffff !important;
   background-color: #032B44 !important;    
   border-color: #032B44 !important;
 }
 
-/* --- PASSAGE CHOICE LINKS --- */
-tw-passage tw-link {
-  display: block !important;
-  margin: 5px 0 !important;          /* Spaces choice links out from each other */
-  padding: 12px 20px !important;       /* Adds breathing room around the text */
-  text-align: left !important;         /* Ensures long text wraps cleanly to the left */
-  font-size: 1.1rem !important;
-  line-height: 1.4 !important;
-  color: #06402B !important;           /* Your global green color */
-  border-left: 4px solid #06402B !important; /* The sleek left accent bar */
-  background-color: rgba(6, 64, 43, 0.03) !important; /* Subtle tint background */
-  text-decoration: none !important;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Hover effect */
-tw-passage tw-link:hover {
-  color: #ffffff !important;
-  background-color: #032B44 !important;    /* Changes block to steel blue */
-  border-left-color: #032B44 !important;   /* Matches the accent line to hover color */
-  padding-left: 28px !important;           /* Micro-interaction: pushes text slightly right */
-}
-
-/* --- SYSTEM / CONTINUE BUTTONS --- */
-/* 1. This centers the container holding the button */
 tw-hook[name="continue"] {
   display: block !important;
   text-align: center !important;
@@ -149,7 +145,6 @@ tw-hook[name="continue"] {
   margin: 30px auto !important;
 }
 
-/* 2. This formats the button inside it */
 tw-hook[name="continue"] tw-link {
   display: inline-block !important;
   padding: 12px 30px !important;
@@ -162,32 +157,34 @@ tw-hook[name="continue"] tw-link {
   text-decoration: none !important;        
   cursor: pointer !important;
   transition: background-color 0.2s, border-color 0.2s;
-  
-  /* Reset Option 1 styles */
   border-left: none !important;
 }
 
-/* Hover state for continue buttons */
 tw-hook[name="continue"] tw-link:hover {
   color: #ffffff !important;
   background-color: #032B44 !important;    
   border-color: #032B44 !important;
 }
-/* --- CELEBRATION TEXT STYLE --- */
+
+/* ==========================================
+   6. CELEBRATION TEXT STYLE
+   ========================================== */
 tw-hook[name="win"] {
   display: block !important;
-  text-align: center !important;     /* Centers it on the page */
-  font-size: 2.5em !important;        /* Makes it noticeably larger */
-  font-weight: bold !important;       /* Makes it thick/bold */
-  color: #D4AF37 !important;          /* Uses your primary deep green */
-  margin-top: 40px !important;        /* Adds space above it */
-  margin-bottom: 25px !important;     /* Adds space below it */
-  letter-spacing: 1px !important;     /* Slightly spreads the letters for impact */
+  text-align: center !important;     
+  font-size: 2.5em !important;        
+  font-weight: bold !important;       
+  color: #D4AF37 !important;          
+  margin-top: 40px !important;        
+  margin-bottom: 25px !important;     
+  letter-spacing: 1px !important;     
 }
 
-/*front page formatting*/
+/* ==========================================
+   7. FRONT PAGE STYLING CUSTOM OVERRIDES
+   ========================================== */
 .cover-wrapper {
-  max-width: 800px; /* Forces the text boundary to stay wide */
+  max-width: 800px; 
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -197,9 +194,9 @@ tw-hook[name="win"] {
   font-size: 2.3rem;
   font-weight: 700;
   color: #424952;
-  margin-top: 10vh; /* Shrunk from 15vh */
+  margin-top: 10vh; 
   margin-bottom: 5px;
-  white-space: nowrap; /* Forces title to stay on a single line */
+  white-space: nowrap; 
 }
 
 .cover-subtitle {
@@ -209,7 +206,7 @@ tw-hook[name="win"] {
   font-weight: normal;
   color: #64748b;
   margin-top: 0;
-  margin-bottom: 5vh; /* Shrunk from 8vh */
+  margin-bottom: 5vh; 
 }
 
 .cover-btn a {
@@ -230,7 +227,7 @@ tw-hook[name="win"] {
 
 .cover-credits {
   text-align: left;
-  margin-top: 10vh; /* Shrunk from 15vh */
+  margin-top: 10vh; 
   font-family: sans-serif;
   font-size: 0.8rem;
   color: #718096;
@@ -463,7 +460,7 @@ Google. (2026). //Gemini response to prompts about Twine styling and functionali
 
 |continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="35" name="Introduction" tags="" position="575,200" size="100,100">{(set: $score to 0)
 (set: $showFooter to true)(set: $pageNumber to 1)
-You arrive to the lab for your first team meeting. You introduce yourself first. Your new teammates, sitting across from you, are:
+&lt;div style=&quot;width: 100%; max-width: 100%; display: block;&quot;&gt;You arrive to the lab for your first team meeting. You introduce yourself first. Your new teammates, sitting across from you, are:
 * Chad, who identifies as a white man and has experience in chemical engineering
 * Monica, who identifies as a Latina woman and has experience in mechanical engineering
 * Amar, who identifies as a south Asian man and has experience in civil engineering and strong math skills gained in his home country of India
@@ -473,6 +470,7 @@ You arrive to the lab for your first team meeting. You introduce yourself first.
   (go-to: &quot;GG&quot;)]
   (link: &quot;Let&#39;s create a team charter to establish some norms about how we will work together&quot;)[ (set: $score to it + 3) (go-to: &quot;FF&quot;) ]
   (link: &quot;Say nothing and let someone else take the lead&quot;)[ (set: $score to it - 1) (go-to: &quot;A&quot;) ]
+  &lt;/div&gt;
 }</tw-passagedata><tw-passagedata pid="36" name="scoreboard" tags="" position="100,125" size="100,100">{
 (if: (passage:)&#39;s name is not &quot;cover&quot; and (passage:)&#39;s name is not &quot;credits&quot; and (passage:)&#39;s name is not &quot;EE&quot;)[
   &lt;div style=&quot;background-color: #424952; color: #F1E9D2; font-size: 24pt; font-weight: bold; font-family: sans-serif; border-radius: 4px; margin-top: 5px; margin-bottom: 5px; width: 100%; box-sizing: border-box; height: 44px; display: flex; align-items: center; justify-content: center;&quot;&gt;
