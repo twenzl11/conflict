@@ -10,92 +10,144 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
-   1. GLOBAL ENGINE LAYOUT & SCROLLING
+   MASTER LAYOUT RESET (ELIMINATES THE TEXT SQUEEZE)
    ========================================================================== */
 html, body {
-  width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; height: 100% !important; overflow-y: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+  overflow-y: auto !important;
 }
+
 tw-story {
-  width: 95% !important; max-width: 1200px !important; margin: 0 auto !important; padding: 15px 0 25px !important; box-sizing: border-box !important; display: block !important;
-  background-image: url("images/engBG.jpg"); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; background-color: #ffffff; color: #424952; font-family: sans-serif;
+  width: 100% !important;          
+  max-width: 100% !important;     
+  margin: 0 !important;
+  padding: 15px 0 25px !important;
+  box-sizing: border-box !important;
+  display: block !important;       
+  background-image: url("images/engBG.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #ffffff;
+  color: #424952;
+  font-family: sans-serif;
 }
+
 tw-passage {
-  width: 100% !important; max-width: 100% !important; display: block !important; padding: 0 25px 0 100px !important; margin: 0 !important; box-sizing: border-box !important;
+  width: 95% !important;           
+  max-width: 1300px !important;    
+  display: block !important;
+  margin: 0 auto !important;       
+  padding: 0 40px 0 100px !important;  
+  box-sizing: border-box !important;
 }
 
-/* ==========================================================================
-   2. FLEXBOX LAYOUT (SIDE-BY-SIDE)
-   ========================================================================== */
-.scene-container {
-  display: flex !important; flex-direction: row !important; align-items: flex-start !important; justify-content: space-between !important; gap: 40px !important; width: 100% !important; margin: 5px 0 15px !important;
-}
-.scene-text {
-  flex: 1 1 55% !important; width: 55% !important;
-}
-.scene-text p, .scene-text ul, .scene-text ol {
-  width: 100% !important; max-width: 100% !important; line-height: 1.6 !important; margin: 0 0 0.8em !important; display: block !important;
-}
-.scene-photo {
-  flex: 1 1 40% !important; width: 40% !important; display: flex !important; justify-content: center !important;
-}
-.scene-photo img {
-  width: 100% !important; max-width: 450px !important; height: auto !important; border: 2px solid #032B44 !important; border-radius: 4px !important; margin: 0 !important; display: block !important;
-}
-tw-passage > img {
-  display: block !important; margin: 15px auto !important; max-width: 80% !important; height: auto !important;
+tw-passage p {
+  width: 100% !important;
+  max-width: 100% !important;    
+  line-height: 1.6 !important;
+  margin: 0.8em 0 !important;
+  display: block !important;
 }
 
-/* ==========================================================================
-   3. SIDEBAR & NAVIGATION ICONS
-   ========================================================================== */
+/* Sidebar & Arrow Controls */
 tw-sidebar {
-  position: absolute !important; top: 15px !important; left: 15px !important; z-index: 9999 !important; display: flex !important; flex-direction: row !important; gap: 15px !important; width: auto !important; height: auto !important;
+  position: absolute !important;
+  top: 15px !important;
+  left: 10px !important;
+  z-index: 9999 !important;       
+  display: flex !important;
+  flex-direction: row !important; 
+  gap: 15px !important;           
+  width: 80px !important;        
+  height: auto !important;
 }
+
 tw-icon, tw-icon.undo, tw-icon.redo {
-  font-size: 2.2rem !important; width: 35px !important; height: 35px !important; line-height: 35px !important; display: inline-block !important; cursor: pointer !important; z-index: 9999 !important; opacity: 0.7 !important;
+  font-size: 2.2rem !important;  
+  width: 35px !important;
+  height: 35px !important;
+  line-height: 35px !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  opacity: 0.7 !important;
 }
-tw-icon:hover { opacity: 1 !important; }
 
-/* ==========================================================================
-   4. LINKS & BUTTON STYLING
-   ========================================================================== */
-tw-link { color: #06402B; }
-tw-link:hover { color: #032B44; }
+tw-icon:hover {
+  opacity: 1 !important;
+}
+
+/* Image Scaling & Links */
+img {
+  display: block !important;
+  margin: 15px auto !important;
+  border: 2px solid #032B44 !important;
+  border-radius: 4px !important;
+  max-width: 80% !important;
+  max-height: 35vh !important;   
+} 
+
 tw-passage tw-link {
-  display: block !important; max-width: 100% !important; margin: 8px 0 !important; padding: 12px 20px !important; text-align: left !important; font-size: 1.1rem !important; line-height: 1.4 !important; color: #06402B !important; border-left: 4px solid #06402B !important; background-color: rgba(6, 64, 43, 0.03) !important; text-decoration: none !important; transition: all 0.2s ease-in-out; clear: both !important;
+  display: block !important;
+  max-width: 100% !important;    
+  margin: 8px 0 !important;          
+  padding: 12px 20px !important;       
+  font-size: 1.1rem !important;
+  line-height: 1.4 !important;
+  color: #06402B !important;           
+  border-left: 4px solid #06402B !important; 
+  background-color: rgba(6, 64, 43, 0.03) !important; 
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
 }
-tw-passage tw-link:hover {
-  color: #ffffff !important; background-color: #032B44 !important; border-left-color: #032B44 !important; padding-left: 28px !important;
-}
-.cover-button-container tw-link, tw-hook[name="continue"] tw-link {
-  display: inline-block !important; padding: 12px 30px !important; font-size: 1.1rem !important; font-weight: bold !important; color: #ffffff !important; background-color: #06402B !important; border: 2px solid #06402B !important; border-radius: 6px !important; text-decoration: none !important; cursor: pointer;
-}
-.cover-button-container tw-link:hover, tw-hook[name="continue"] tw-link:hover {
-  color: #ffffff !important; background-color: #032B44 !important; border-color: #032B44 !important;
-}
-tw-hook[name="continue"] {
-  display: block !important; text-align: center !important; width: 100% !important; margin: 25px auto !important; clear: both !important;
-}
-tw-hook[name="continue"] tw-link { border-left: none !important; }
 
-/* ==========================================================================
-   5. DECORATIONS & FOOTERS
-   ========================================================================== */
-tw-passage div[style*="background-color: #424952"] { width: 100% !important; max-width: 100% !important; margin: 10px 0 !important; }
-tw-include[type="footer"] { margin-top: 20px !important; padding: 0 !important; display: block !important; clear: both !important; width: 100% !important; }
-tw-hook[name="win"] { display: block !important; text-align: center !important; font-size: 2.5em !important; font-weight: bold !important; color: #D4AF37 !important; margin: 25px 0 15px !important; }
-.cover-title { font-size: 2.3rem; font-weight: 700; color: #424952; margin-top: 10vh; margin-bottom: 5px; }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
-{
-&lt;div class=&quot;scene-container&quot;&gt; 
-&lt;div class=&quot;scene-text&quot;&gt; 
-Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
-&lt;/div&gt;
-&lt;div class=&quot;scene-photo&quot;&gt; 
+tw-passage tw-link:hover {
+  color: #ffffff !important;
+  background-color: #032B44 !important;    
+  border-left-color: #032B44 !important;   
+  padding-left: 28px !important;           
+}
+
+.cover-button-container tw-link, tw-hook[name="continue"] tw-link {
+  display: inline-block !important;
+  padding: 12px 30px !important;
+  font-size: 1.1rem !important;            
+  font-weight: bold !important;
+  color: #ffffff !important;               
+  background-color: #06402B !important;    
+  border: 2px solid #06402B !important;
+  border-radius: 6px !important;           
+  text-decoration: none !important;        
+  cursor: pointer;
+}
+
+tw-hook[name="continue"] {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 25px auto !important;
+}
+
+tw-hook[name="win"] {
+  display: block !important;
+  text-align: center !important;     
+  font-size: 2.5em !important;        
+  font-weight: bold !important;       
+  color: #D4AF37 !important;          
+  margin: 25px 0 15px !important;        
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
+{Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
+&lt;br&gt;&#39;&#39;What do you do?&#39;&#39;
+
 &lt;img src=&quot;images/A_Chad_orders_Karen.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad orders Monica to take notes and Monica looks unhappy.&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&#39;&#39;What do you do?&#39;&#39;
+
+
 (link: &quot;Ignore it&quot;)[ (set: $score to it -2) (go-to: &quot;F&quot;) ]
 (link: &quot;Suggest rotating note taking responsibilities so that everyone takes a turn&quot;)[ (set: $score to it + 1) (go-to: &quot;G&quot;) ]
 (link: &quot;Call out Chad&#39;s sexist statement&quot;)[ (go-to: &quot;H&quot;) ]
@@ -321,16 +373,11 @@ Google. (2026). //Gemini response to prompts about Twine styling and functionali
 |continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="35" name="Introduction" tags="" position="575,200" size="100,100">{(set: $score to 0)
 (set: $showFooter to true)(set: $pageNumber to 1)
 
-&lt;div class=&quot;scene-container&quot;&gt;
-  &lt;div class=&quot;scene-text&quot;&gt;
 You arrive to the lab for your first team meeting. You introduce yourself first. Your new teammates, sitting across from you, are:
 * Chad, who identifies as a white man and has experience in chemical engineering
 * Monica, who identifies as a Latina woman and has experience in mechanical engineering
 * Amar, who identifies as a south Asian man and has experience in civil engineering and strong math skills gained in his home country of India  &lt;/div&gt;
-  &lt;div class=&quot;scene-photo&quot;&gt;
 &lt;img src=&quot;images/introduction.jpeg&quot; alt=&quot;Your three new teammates are sitting at a table smiling at you.&quot;&gt;  
-&lt;/div&gt;
-&lt;/div&gt;
 &#39;&#39;Now that you&#39;ve all introduced yourselves, how do you suggest the team get started?&#39;&#39;
 (link: &quot;Let&#39;s choose a leader&quot;)[
   (go-to: &quot;GG&quot;)]
