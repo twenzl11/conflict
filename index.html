@@ -38,36 +38,40 @@ img {
    width: 60%; 
   height: auto;
 } 
+/* 1. Eliminate default Harlowe margins and padding from the main layout */
+tw-story {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
 
-/* 1. Fix the top white space without breaking layout */
 tw-passage {
     padding-top: 0px !important;
     margin-top: 0px !important;
 }
 
-/* 2. Allow scrolling ONLY if the content is too big for the screen (fixes the Intro page) */
+/* 2. Fix the back buttons by floating them so they take up ZERO vertical height */
+tw-sidebar {
+    position: absolute !important;  /* Stops the sidebar from pushing text down */
+    top: 10px !important;          /* Keeps it near the top left corner */
+    left: 20px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: auto !important;
+}
+
+/* 3. Allow scrolling ONLY when needed (fixes the Intro page) */
 html, body, tw-story {
     height: 100% !important;
     overflow-y: auto !important; 
 }
 
-/* 3. Bring back the Twine Undo/Back buttons but stop them from adding top padding */
-tw-sidebar {
-    display: flex !important;
-    flex-direction: row !important;
-    position: relative !important;
-    width: auto !important;
-    margin: 0 auto 10px auto !important;
-}
-
-/* 4. Shrink the images so they don't push the footer off the screen */
+/* 4. Keep images constrained so they don't blow past the screen fold */
 tw-passage img {
-    max-height: 35vh !important; /* Cap image height to 35% of the viewport */
-    width: auto !important;      /* Keep aspect ratio */
+    max-height: 35vh !important;  /* Caps image height at 35% of the viewport */
+    width: auto !important;       /* Maintains aspect ratio */
     display: block;
-    margin: 10px auto;           /* Center image */
+    margin: 10px auto;            /* Centers image neatly */
 }
-
 
 
 /* --- ONLY TARGETS LINKS INSIDE THE COVER CONTAINER --- */
