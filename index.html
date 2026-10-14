@@ -343,7 +343,7 @@ The next day, you find out he quit the team.
 &lt;img src=&quot;images/U_T1_No_Amar.jpeg&quot; alt=&quot;Chad and Monica are working at the table.&quot; &gt;
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
 (display: &quot;scoreboard&quot;)}
-</tw-passagedata><tw-passagedata pid="28" name="BB" tags="" position="775,1050" size="100,100">(set: $showFooter to true)(set: $pageNumber to 31)
+</tw-passagedata><tw-passagedata pid="28" name="BB" tags="" position="775,1050" size="100,100">(set: $showFooter to true)(set: $pageNumber to 31)(set: $score to $score + 8)
 
 {The team works together well and the project is successful. 
 &lt;img src=&quot;images/BBsuccess.jpeg&quot; alt=&quot;The three teammates sit at a table looking happy. Amar gives a thumbs up.&quot;&gt;
@@ -405,17 +405,17 @@ Google. (2026). //Gemini response to prompts about Twine styling and functionali
 
 {A big thank you to my PhD advisor, Dr. Vanessa Svihla, for introducing me to Twine and her guidance and feedback as I developed this game.
 
-|continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="35" name="Introduction" tags="" position="575,200" size="100,100">(set: $score to 0)
+|continue&gt;[[[Start over-&gt;Introduction]]]}</tw-passagedata><tw-passagedata pid="35" name="Introduction" tags="" position="575,200" size="100,100">{(set: $score to 0)
 (set: $showFooter to true)(set: $pageNumber to 1)
-{You are part of a four-person team conducting a small research study. Your teammates, sitting across from you, are:
-* Chad, a white man with experience in chemical engineering
-* Monica, a Latina woman with experience in mechanical engineering
-* Amar, a south Asian man from India with experience in civil engineering and strong math skills
-&lt;img src=&quot;images/introduction.jpeg&quot; alt=&quot;Your three teammates are sitting at a table smiling at you.&quot;&gt;
+You arrive to the lab for your first team meeting. You introduce yourself first. Your new teammates, sitting across from you, are:
+* Chad, who identifies as a white man and has experience in chemical engineering
+* Monica, who identifies as a Latina woman and has experience in mechanical engineering
+* Amar, who identifies as a south Asian man and has experience in civil engineering and strong math skills gained in his home country of India
+&lt;img src=&quot;images/introduction.jpeg&quot; alt=&quot;Your three new teammates are sitting at a table smiling at you.&quot;&gt;
 &#39;&#39;Now that you&#39;ve all introduced yourselves, how do you suggest the team get started?&#39;&#39;
 (link: &quot;Let&#39;s choose a leader&quot;)[
   (go-to: &quot;GG&quot;)]
-  (link: &quot;Let&#39;s create a team charter&quot;)[ (set: $score to it + 3) (go-to: &quot;FF&quot;) ]
+  (link: &quot;Let&#39;s create a team charter to establish some norms about how we will work together&quot;)[ (set: $score to it + 3) (go-to: &quot;FF&quot;) ]
   (link: &quot;Say nothing and let someone else take the lead&quot;)[ (set: $score to it - 1) (go-to: &quot;A&quot;) ]
 }</tw-passagedata><tw-passagedata pid="36" name="scoreboard" tags="" position="100,125" size="100,100">{
 (if: (passage:)&#39;s name is not &quot;cover&quot; and (passage:)&#39;s name is not &quot;credits&quot; and (passage:)&#39;s name is not &quot;EE&quot;)[
@@ -432,7 +432,7 @@ Google. (2026). //Gemini response to prompts about Twine styling and functionali
 (link: &quot;Pick Monica - she seems really excited and enthusiastic&quot;)[ (set: $score to it + 0) (go-to: &quot;B1&quot;) ]
 (link: &quot;Ask Chad and Monica about their qualifications and leadership approaches&quot;)[ (set: $score to it + 1) (go-to: &quot;C&quot;) ]
 }</tw-passagedata><tw-passagedata pid="38" name="FF" tags="" position="700,25" size="100,100">(set: $showFooter to true)(set: $pageNumber to 2)
-{Your team agrees that you need a team charter. After some discussion, Amar sets up a shared document you can all access. Together you create some team norms about respectful communication and what you&#39;ll do in case of conflict. 
+{Your team agrees that you need a team charter. After some discussion, Amar sets up a shared document you can all access. Together you create some team norms about respectful communication and what you&#39;ll do in case of conflict. You store the file online where you and your teammates can all easily access it. 
 &lt;img src=&quot;images/FFCharter.jpg&quot; alt=&quot;A team charter is displayed on a laptop.&quot;&gt;
 Next, your team needs to select a leader. 
 |continue&gt;[[[Continue-&gt;GG]]]
@@ -454,7 +454,7 @@ Next, your team needs to select a leader.
   &lt;/div&gt;
   
   &lt;div class=&quot;cover-button-container&quot; style=&quot;margin-top: 30px; margin-bottom: 40px;&quot;&gt;
-    (link-goto: &quot;Begin&quot;, &quot;Introduction&quot;)
+    (link-goto: &quot;Instructions&quot;, &quot;instructions&quot;)
   &lt;/div&gt;
   
   &lt;div style=&quot;text-align: left; margin-top: 60px; font-size: 0.75em; font-weight: normal; color: #718096; line-height: 1.5;&quot;&gt;
@@ -526,7 +526,8 @@ Your team never hears from Monica again. Without her help, the project fails.
 |continue&gt;[[[Credits and acknowledgements-&gt;credits]]]
 (display: &quot;scoreboard&quot;)</tw-passagedata><tw-passagedata pid="50" name="OO" tags="" position="900,1400" size="100,100">(set: $showFooter to true)(set: $pageNumber to 45)
 Monica thanks you for understanding and agrees to the trade. She is able to complete the literature review on time, and you get the experiment done.  
-|continue&gt;[[[Continue-&gt;BB]]]</tw-passagedata></tw-storydata>
+|continue&gt;[[[Continue-&gt;BB]]]</tw-passagedata><tw-passagedata pid="51" name="instructions" tags="" position="575,75" size="100,100">{In this game, you are joining a new team tasked with designing and implementing a research project. After meeting your teammates, you&#39;ll be presented with scenarios and choices on how to respond. Each choice you make will impact your team&#39;s psychological safety, which is the degree to which you and your teammates feel safe taking risks like disagreeing or making mistakes within the team. When you reach the end of the game, you&#39;ll find out how your choices impacted team psychological safety in your final score, and you&#39;ll also find out if the research project succeeded or not. 
+|continue&gt;[[[Begin-&gt;Introduction]]]}</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
