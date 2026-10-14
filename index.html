@@ -51,7 +51,8 @@ tw-passage {
   box-sizing: border-box !important;
 }
 
-tw-passage p, .scene-text p, tw-passage span:not(#score-area), tw-story tw-passage p {
+/* FIX: Refined target ignores all span tags inside the gray metrics banner box completely */
+tw-passage p, .scene-text p, tw-story tw-passage p, tw-passage > span:not([id]), tw-passage span:not([id*="score"]):not([style*="color"]) {
   width: 100% !important;
   max-width: 100% !important;    
   line-height: 1.6 !important;
@@ -63,7 +64,6 @@ tw-passage p, .scene-text p, tw-passage span:not(#score-area), tw-story tw-passa
 /* ==========================================================================
    2. FIXED POSITION OVERRIDE (ELIMINATES PAGE NUMBER HOPPING GLITCH)
    ========================================================================== */
-/* Using fixed positioning completely disconnects the counter from Harlowe's laggy rendering stack */
 tw-include[type="footer"] {
   display: block !important;      
   position: fixed !important;     /* Locks it globally to the viewport window */
@@ -81,7 +81,6 @@ tw-include[type="footer"] {
   -webkit-transform: none !important; transform: none !important;
 }
 
-/* Hard reset targeting Harlowe's active transition animation state */
 .transition-in tw-include[type="footer"],
 [data-t8n^=dissolve] tw-include[type="footer"] {
   position: fixed !important;
@@ -97,7 +96,6 @@ tw-include[type="footer"] {
   font-size: 1.1rem !important;
   font-weight: bold !important;
   
-  /* Dimensions for a perfect highlighted square box */
   width: 42px !important;
   height: 42px !important;
   line-height: 42px !important;
@@ -111,7 +109,6 @@ tw-include[type="footer"] {
 /* ==========================================================================
    3. RESPONSIBLE IMAGE CONTROLS (FIXES OVERSIZED PHOTOS)
    ========================================================================== */
-/* Direct rules to prevent your graphics from inflating past the fold */
 img, .scene-photo img {
   display: block !important;
   margin: 15px auto !important;
@@ -119,9 +116,9 @@ img, .scene-photo img {
   border-radius: 4px !important;
   
   width: auto !important;
-  max-width: 80% !important;     /* Fits comfortably on any desktop scale */
+  max-width: 80% !important;     
   height: auto !important;
-  max-height: 38vh !important;   /* Strict ceiling prevents massive layout blowouts */
+  max-height: 38vh !important;   
 } 
 
 /* ==========================================================================
@@ -247,7 +244,6 @@ tw-hook[name="continue"] tw-link {
   border-left: none !important;
 }
 
-
 tw-hook[name="win"] {
   display: block !important;
   text-align: center !important;     
@@ -270,41 +266,28 @@ tw-hook[name="win"] {
 tw-include[type="header"] {
   display: none !important;
 }
+
 /* ==========================================================================
-   FINAL SCOREBOARD FIX: FIXES TEXT AND VALUE GAP SEPARATION
+   8. CRITICAL REPAIR FOR TEAM PSYCHOLOGICAL SAFETY BANNER
    ========================================================================== */
-/* Targets all spans inside your grey score bar container directly */
-tw-passage div[style*="background-color: #424952"] span {
-  display: inline !important;
-  float: none !important;
-  width: auto !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Restores the gray box sizing and forces all elements inside to stay inline side-by-side */
+tw-passage div[style*="background-color: #424952"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 15px 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Forces the numeric wrapper to sit tightly inline on the same row */
-#score-area {
-  display: inline !important;
-  float: none !important;
-  margin-left: 10px !important; /* Balanced layout spacing */
-}
-/* ==========================================================================
-   SCOREBOARD ACCENT ROW REPAIR (SNAPS NUMBER BACK NEXT TO TEXT)
-   ========================================================================== */
-/* Isolates ONLY the span layers inside the dark gray scoreboard bar */
+/* Forces the labels and variable code number wrappers to stay tightly unified */
 tw-passage div[style*="background-color: #424952"] span {
-  display: inline-block !important;
+  display: inline !important;
   width: auto !important;
   max-width: none !important;
-  margin: 0 !important;
+  margin: 0 4px !important;
   padding: 0 !important;
-}
-
-/* Forces the numeric calculation area container to stay inline */
-#score-area {
-  display: inline-block !important;
-  margin-left: 8px !important; /* Perfect visual gap spacing */
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
