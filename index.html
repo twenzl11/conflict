@@ -38,16 +38,20 @@ img {
    width: 60%; 
   height: auto;
 } 
-* 1. Eliminate default Harlowe margins and padding from the main layout */
+/* 1. Eliminate default Harlowe margins/padding and widen the text bounds */
 tw-story {
     padding-top: 0px !important;
     margin-top: 0px !important;
+    width: 85% !important;        /* Broadens the passage wrap width so text spreads out horizontally */
+    max-width: 1000px !important;  /* Stops the text lines from getting aggressively long on desktop screens */
+    margin-left: auto !important;  /* Perfect horizontal balance alignment */
+    margin-right: auto !important;
 }
 
 tw-passage {
     padding-top: 0px !important;
     margin-top: 0px !important;
-    padding-left: 50px !important; /* Creates a safe gutter on the left so text clears the buttons */
+    padding-left: 70px !important; /* Widen the gutter to guarantee text entirely clears absolute buttons */
 }
 
 /* 2. Float the back buttons cleanly in the front layer */
@@ -58,7 +62,7 @@ tw-sidebar {
     display: flex !important;
     flex-direction: row !important;
     width: auto !important;
-    z-index: 9999 !important;      /* Forces the back buttons to stay on top of all text and boxes */
+    z-index: 9999 !important;      /* Layer override to guarantee button priority */
 }
 
 /* 3. Ensure easy interaction rules for the back buttons */
@@ -70,8 +74,8 @@ tw-icon:hover {
     opacity: 1 !important;
 }
 
-/* 4. Allow scrolling ONLY when needed (keeps Intro page accessible) */
-html, body, tw-story {
+/* 4. Allow scrolling ONLY when needed (keeps long paragraphs accessible) */
+html, body {
     height: 100% !important;
     overflow-y: auto !important; 
 }
