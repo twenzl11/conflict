@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
-   1. STAGE LAYOUT & WIDE TEXT OVERRIDES (FIXES SQUEEZE)
+   1. FORCE COMPLETE SCREEN WIDTH (BREAKS THE ENGINE'S SQUEEZE MASK)
    ========================================================================== */
 html, body {
   width: 100% !important;
@@ -22,14 +22,14 @@ html, body {
 }
 
 tw-story {
-  width: 90% !important;          
-  max-width: 1100px !important; 
-  margin: 0 auto !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
+  width: 100% !important;          
+  max-width: 100% !important;     /* Forces the background and main stage full width */
+  margin: 0 !important;
+  padding: 5px 0 !important;
   box-sizing: border-box !important;
+  display: block !important;       /* Breaks Harlowe's flex layout bugs */
   
-  /* Your original background details */
+  /* Your original background styling assets */
   background-image: url("images/engBG.jpg");
   background-size: cover;
   background-position: center;
@@ -41,57 +41,63 @@ tw-story {
 }
 
 tw-passage {
-  width: 100% !important;         
-  max-width: 100% !important;    
+  width: 90% !important;           /* Expands the actual passage box to 90% of screen */
+  max-width: 1100px !important;    /* Keeps paragraphs looking clean on huge desktop screens */
   display: block !important;
-  padding-left: 90px !important;  /* Safe baseline room for sidebar arrows */
+  margin: 0 auto !important;       /* Centers the expanded box perfectly */
+  padding-left: 110px !important;  /* Massive safety gutter so text can NEVER clip buttons */
   padding-right: 20px !important;
-  padding-top: 0px !important;
-  margin-top: 0px !important;
+  padding-top: 10px !important;
   box-sizing: border-box !important;
 }
 
-/* Widen actual story paragraphs naturally without collapsing child button elements */
-tw-passage p {
+/* Forces all normal text rows to leverage the newly unlocked space bounds */
+tw-passage p, tw-passage span:not(#score-area), tw-passage ul, tw-passage ol {
   width: 100% !important;
-  max-width: 950px !important;
+  max-width: 100% !important;    
   line-height: 1.6 !important;
   display: block !important;
-  margin-top: 0.8em !important;
-  margin-bottom: 0.8em !important;
 }
 
 /* ==========================================================================
-   2. FIX SIDEBAR ARROWS LAYERING (FIXES BACK/FORWARD OVERLAP)
+   2. RE-SCALE SIDEBAR ARROWS (FIXES TINY SIZE & OVERLAP)
    ========================================================================== */
 tw-sidebar {
   position: absolute !important;
-  top: 15px !important;
-  left: 15px !important;
+  top: 20px !important;
+  left: 20px !important;
   z-index: 9999 !important;       
   display: flex !important;
   flex-direction: row !important; 
-  gap: 15px !important;
+  gap: 20px !important;           /* Creates perfect clicking space between arrows */
   width: auto !important;
   height: auto !important;
 }
 
-/* Forces both direction icon assets onto an unblocked interactive layer */
+/* Targets the core vector shapes of Harlowe's default undo/redo system */
 tw-icon, tw-icon.undo, tw-icon.redo {
   position: relative !important;
   display: inline-block !important;
   cursor: pointer !important;
   z-index: 9999 !important;
-  font-size: 1.5rem !important;
-  opacity: 0.6 !important;
+  
+  /* Dramatic size boost so they match human-centric touch/click targets */
+  font-size: 2.2rem !important;  
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  text-align: center !important;
+  opacity: 0.75 !important;
 }
 
 tw-icon:hover, tw-icon.undo:hover, tw-icon.redo:hover {
   opacity: 1 !important;
+  transform: scale(1.15);       /* Subtle visual micro-interaction popping the arrow outward */
+  transition: all 0.15s ease-in-out;
 }
 
 /* ==========================================================================
-   3. RESPONSIVE GRAPHICS SCALING (PULLS FOOTER LINE UP)
+   3. RESPONSIVE GRAPHICS CONTROLS (ELIMINATES GAP BOUNDS)
    ========================================================================== */
 img {
   display: block !important;
@@ -99,12 +105,11 @@ img {
   border: 2px solid #032B44 !important;
   border-radius: 4px !important;
   width: auto !important;
-  max-width: 85% !important;
+  max-width: 80% !important;
   height: auto !important;
-  max-height: 35vh !important;    /* Keeps layout components stuck to screen fold */
+  max-height: 32vh !important;    /* Keeps layout elements completely consolidated */
 } 
 
-/* Tightens empty gaps above structural rules and lines */
 hr, tw-passage hr {
   margin-top: 15px !important;
   margin-bottom: 5px !important;
@@ -112,19 +117,18 @@ hr, tw-passage hr {
 }
 
 /* ==========================================================================
-   4. CHOICE BUTTON INTERFACES (FIXES CONTINUE ALIGNMENT)
+   4. PASSAGE OPTIONS & CHOICE BLOCKS CONFIG
    ========================================================================== */
 tw-link {
   color: #06402B;
 }
-
 tw-link:hover {
   color: #032B44;
 }
 
 tw-passage tw-link {
   display: block !important;
-  max-width: 950px !important;    
+  max-width: 100% !important;    
   margin: 8px 0 !important;          
   padding: 12px 20px !important;       
   text-align: left !important;         
@@ -145,7 +149,7 @@ tw-passage tw-link:hover {
 }
 
 /* ==========================================================================
-   5. COVER BUTTONS & SYSTEM CONTINUES
+   5. COVER FRAMEWORK & CONTINUE SYSTEMS
    ========================================================================== */
 .cover-button-container tw-link, tw-hook[name="continue"] tw-link {
   display: inline-block !important;
@@ -172,16 +176,13 @@ tw-hook[name="continue"] {
   text-align: center !important;
   width: 100% !important;
   margin: 25px auto !important;
-  clear: both !important; /* Forces the continue button onto its own line below paragraphs */
+  clear: both !important; 
 }
 
 tw-hook[name="continue"] tw-link {
   border-left: none !important;
 }
 
-/* ==========================================================================
-   6. GLOBAL SCORING DISPLAY & TITLE STYLES
-   ========================================================================== */
 tw-hook[name="win"] {
   display: block !important;
   text-align: center !important;     
