@@ -247,11 +247,6 @@ tw-hook[name="continue"] tw-link {
   border-left: none !important;
 }
 
-tw-passage div[style*="background-color: #424952"] {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 10px 0 !important;
-}
 
 tw-hook[name="win"] {
   display: block !important;
@@ -275,21 +270,24 @@ tw-hook[name="win"] {
 tw-include[type="header"] {
   display: none !important;
 }
-/* Forces the banner container to keep all its text unified on a single line */
-tw-passage div[style*="background-color: #424952"] {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 10px !important; /* Explicitly spaces the score text and number apart */
-}
-
-/* Forces everything inside the banner box to behave inline */
-tw-passage div[style*="background-color: #424952"] * {
-  display: inline-block !important;
+/* ==========================================================================
+   FINAL SCOREBOARD FIX: FIXES TEXT AND VALUE GAP SEPARATION
+   ========================================================================== */
+/* Targets all spans inside your grey score bar container directly */
+tw-passage div[style*="background-color: #424952"] span {
+  display: inline !important;
+  float: none !important;
+  width: auto !important;
   max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* Forces the numeric wrapper to sit tightly inline on the same row */
+#score-area {
+  display: inline !important;
+  float: none !important;
+  margin-left: 10px !important; /* Balanced layout spacing */
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;br&gt;&#39;&#39;What do you do?&#39;&#39;
