@@ -37,6 +37,28 @@ img {
   border-radius: 4px;
    width: 60%; 
   height: auto;
+} 
+tw-passage {
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
+
+tw-sidebar {
+    display: none;
+}
+
+/* Prevent images from blowing up past the height of the screen */
+tw-passage img {
+    max-height: 40vh !important; /* Limits image to 40% of the screen height */
+    width: auto !important;     /* Keeps the aspect ratio perfect */
+    display: block;
+    margin: 10px auto;          /* Centers the image smoothly */
+}
+/* Constrain the main story text area so the footer remains stuck to the bottom view */
+tw-story {
+    padding: 2% 5% !important;
+    height: 96vh !important;
+    box-sizing: border-box;
 }
 
 /* --- ONLY TARGETS LINKS INSIDE THE COVER CONTAINER --- */
@@ -64,7 +86,7 @@ img {
 /* --- PASSAGE CHOICE LINKS --- */
 tw-passage tw-link {
   display: block !important;
-  margin: 20px 0 !important;          /* Spaces choice links out from each other */
+  margin: 5px 0 !important;          /* Spaces choice links out from each other */
   padding: 12px 20px !important;       /* Adds breathing room around the text */
   text-align: left !important;         /* Ensures long text wraps cleanly to the left */
   font-size: 1.1rem !important;
