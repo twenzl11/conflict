@@ -232,6 +232,19 @@ tw-hook[name="win"] {
   font-size: 0.8rem;
   color: #718096;
   line-height: 1.5;
+}
+/* Tighten up text blocks so paragraphs don't stretch into massive, hard-to-read single lines */
+tw-passage p, tw-passage span, tw-passage ul, tw-passage ol {
+    max-width: 800px !important;
+    line-height: 1.6 !important;
+}
+
+/* Center your custom score banner beautifully within the widened screen frame */
+tw-passage div[style*="background-color: #424952"] {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 6px !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;img src=&quot;images/A_Chad_orders_Karen.jpeg&quot; alt=&quot;The three teammates are sitting at a table. Chad orders Monica to take notes and Monica looks unhappy.&quot;&gt;
