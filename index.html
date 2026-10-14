@@ -10,7 +10,7 @@
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Team conflict management.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Team conflict management" startnode="40" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="46B4B0C1-0473-43D5-9787-DEA10F59FEA7" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==========================================================================
-   1. GLOBAL ENGINE LAYOUT & SQUEEZE RESET
+   1. STAGE LAYOUT & WIDE TEXT OVERRIDES (FIXES SQUEEZE)
    ========================================================================== */
 html, body {
   width: 100% !important;
@@ -22,12 +22,14 @@ html, body {
 }
 
 tw-story {
-  width: 95% !important;          
-  max-width: 1200px !important; 
+  width: 90% !important;          
+  max-width: 1100px !important; 
   margin: 0 auto !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   box-sizing: border-box !important;
+  
+  /* Your original background details */
   background-image: url("images/engBG.jpg");
   background-size: cover;
   background-position: center;
@@ -42,21 +44,25 @@ tw-passage {
   width: 100% !important;         
   max-width: 100% !important;    
   display: block !important;
-  padding-left: 95px !important;  
-  padding-right: 40px !important;
+  padding-left: 90px !important;  /* Safe baseline room for sidebar arrows */
+  padding-right: 20px !important;
   padding-top: 0px !important;
   margin-top: 0px !important;
   box-sizing: border-box !important;
 }
 
-tw-passage p, tw-passage span:not(#score-area), tw-passage ul, tw-passage ol {
-  max-width: 950px !important;    
+/* Widen actual story paragraphs naturally without collapsing child button elements */
+tw-passage p {
+  width: 100% !important;
+  max-width: 950px !important;
   line-height: 1.6 !important;
-  display: block;
+  display: block !important;
+  margin-top: 0.8em !important;
+  margin-bottom: 0.8em !important;
 }
 
 /* ==========================================================================
-   2. FIXED SIDEBAR NAVIGATION LAYER & OTHER STYLES
+   2. FIX SIDEBAR ARROWS LAYERING (FIXES BACK/FORWARD OVERLAP)
    ========================================================================== */
 tw-sidebar {
   position: absolute !important;
@@ -65,25 +71,28 @@ tw-sidebar {
   z-index: 9999 !important;       
   display: flex !important;
   flex-direction: row !important; 
-  gap: 12px !important;
+  gap: 15px !important;
   width: auto !important;
+  height: auto !important;
 }
 
+/* Forces both direction icon assets onto an unblocked interactive layer */
 tw-icon, tw-icon.undo, tw-icon.redo {
   position: relative !important;
   display: inline-block !important;
   cursor: pointer !important;
   z-index: 9999 !important;
-}
-
-tw-icon {
+  font-size: 1.5rem !important;
   opacity: 0.6 !important;
 }
 
-tw-icon:hover {
+tw-icon:hover, tw-icon.undo:hover, tw-icon.redo:hover {
   opacity: 1 !important;
 }
 
+/* ==========================================================================
+   3. RESPONSIVE GRAPHICS SCALING (PULLS FOOTER LINE UP)
+   ========================================================================== */
 img {
   display: block !important;
   margin: 15px auto !important;
@@ -92,9 +101,19 @@ img {
   width: auto !important;
   max-width: 85% !important;
   height: auto !important;
-  max-height: 35vh !important;    
+  max-height: 35vh !important;    /* Keeps layout components stuck to screen fold */
 } 
 
+/* Tightens empty gaps above structural rules and lines */
+hr, tw-passage hr {
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
+  clear: both !important;
+}
+
+/* ==========================================================================
+   4. CHOICE BUTTON INTERFACES (FIXES CONTINUE ALIGNMENT)
+   ========================================================================== */
 tw-link {
   color: #06402B;
 }
@@ -106,7 +125,7 @@ tw-link:hover {
 tw-passage tw-link {
   display: block !important;
   max-width: 950px !important;    
-  margin: 6px 0 !important;          
+  margin: 8px 0 !important;          
   padding: 12px 20px !important;       
   text-align: left !important;         
   font-size: 1.1rem !important;
@@ -125,6 +144,9 @@ tw-passage tw-link:hover {
   padding-left: 28px !important;           
 }
 
+/* ==========================================================================
+   5. COVER BUTTONS & SYSTEM CONTINUES
+   ========================================================================== */
 .cover-button-container tw-link, tw-hook[name="continue"] tw-link {
   display: inline-block !important;
   padding: 12px 30px !important;
@@ -145,6 +167,21 @@ tw-passage tw-link:hover {
   border-color: #032B44 !important;
 }
 
+tw-hook[name="continue"] {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 25px auto !important;
+  clear: both !important; /* Forces the continue button onto its own line below paragraphs */
+}
+
+tw-hook[name="continue"] tw-link {
+  border-left: none !important;
+}
+
+/* ==========================================================================
+   6. GLOBAL SCORING DISPLAY & TITLE STYLES
+   ========================================================================== */
 tw-hook[name="win"] {
   display: block !important;
   text-align: center !important;     
