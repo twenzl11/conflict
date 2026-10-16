@@ -27,7 +27,11 @@ tw-story {
   margin: 0 auto !important;      /* Beautifully centers your game canvas */
   padding: 2% 4% !important;      /* Replaces Harlowe's default 20% padding squeeze */
   box-sizing: border-box !important;
-  display: block !important;       
+  display: flex !important;       
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 100vh !important;
+  height: auto !important;
   
   /* Your original background attributes */
   background-image: url("images/engBG.jpg");
@@ -49,10 +53,13 @@ tw-passage {
   padding-top: 0px !important;
   margin-top: 0px !important;
   box-sizing: border-box !important;
+  height: auto !important;
 }
 
-/* FIX: Refined target ignores all span tags inside the gray metrics banner box completely */
-tw-passage p, .scene-text p, tw-story tw-passage p, tw-passage > span:not([id]), tw-passage span:not([id*="score"]):not([style*="color"]) {
+/* FIX: Explicitly ignores any span containing layout rules belonging to the score banner */
+tw-passage p, .scene-text p, tw-story tw-passage p, 
+tw-passage > span:not([id]), 
+tw-passage span:not([id*="score"]):not([style*="color"]):not([style*="background-color"]):not([style*="margin-right"]):not(.header-page-box) {
   width: 100% !important;
   max-width: 100% !important;    
   line-height: 1.6 !important;
@@ -247,49 +254,86 @@ tw-hook[name="continue"] tw-link {
 tw-hook[name="win"] {
   display: block !important;
   text-align: center !important;     
-  font-size: 2.5em !important;        
-  font-weight: bold !important;       
-  color: #D4AF37 !important;          
-  margin-top: 25px !important;        
-  margin-bottom: 15px !important;     
-  letter-spacing: 1px !important;     
-}
-
-.cover-title {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: #424952;
-  margin-top: 10vh; 
-  margin-bottom: 5px;
-}
-
-tw-include[type="header"] {
-  display: none !important;
+  font-weight: bold !important;
 }
 
 /* ==========================================================================
-   8. CRITICAL REPAIR FOR TEAM PSYCHOLOGICAL SAFETY BANNER
+   8. TARGETED SCOREBOARD BANNER FIX (FORCES PERMANENT HORIZONTAL LOCK)
    ========================================================================== */
-/* Restores the gray box sizing and forces all elements inside to stay inline side-by-side */
 tw-passage div[style*="background-color: #424952"] {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 15px 0 !important;
   display: flex !important;
   flex-direction: row !important;
-  align-items: center !important;
+  flex-wrap: nowrap !important;
   justify-content: center !important;
+  align-items: center !important;
+  
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  
+  height: auto !important;
+  min-height: unset !important;
+  padding: 8px 15px !important;
+  margin: 15px 0 !important;
+  
+  font-size: clamp(12pt, 3.8vw, 24pt) !important;
 }
 
-/* Forces the labels and variable code number wrappers to stay tightly unified */
+/* Force elements inside scoreboard box back into structural inline components */
 tw-passage div[style*="background-color: #424952"] span {
-  display: inline !important;
+  display: inline-block !important;
   width: auto !important;
-  max-width: none !important;
-  margin: 0 4px !important;
+  max-width: unset !important;
+  height: auto !important;
+  margin: 0 !important;
   padding: 0 !important;
+  white-space: nowrap !important;
+  line-height: inherit !important;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
+
+tw-passage div[style*="background-color: #424952"] span[style*="margin-right"] {
+  margin-right: 12px !important;
+}
+
+#score-area {
+  margin-left: 0 !important;
+}
+
+/* ==========================================================================
+   9. MOBILE RESPONSIVE DISPLAY LAYERS
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  tw-story {
+    padding: 10px !important;
+    width: 100% !important;
+  }
+  
+  tw-passage {
+    padding-left: 10px !important;  
+    padding-right: 10px !important;
+  }
+  
+  tw-passage div[style*="background-color: #424952"] {
+    margin-top: 50px !important;
+  }
+
+  tw-include[type="footer"] {
+    top: 15px !important;
+right: 15px !important;
+}
+.scene-container {
+flex-direction: column !important;
+gap: 15px !important;
+}
+.scene-text, .scene-photo {
+width: 100% !important;
+flex: 1 1 100% !important;
+}
+img, .scene-photo img {
+max-width: 100% !important;
+max-height: 30vh !important;
+}
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;br&gt;&#39;&#39;What do you do?&#39;&#39;
 
