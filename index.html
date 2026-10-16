@@ -334,11 +334,19 @@ tw-passage div[style*="background-color: #424952"] span[style*="margin-right"] {
     margin-bottom: 20px !important;
   }
 
-  tw-include[type="footer"] {
+ tw-include[type="footer"] {
+    position: absolute !important;
     top: 15px !important;
     right: 15px !important;
+    
+    /* Forces the graphics engine to lock the position in place during mobile screen adjustments */
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    
+    /* Blocks mobile tap delays or animation adjustments */
+    -webkit-transition: none !important;
+    transition: none !important;
   }
-  
   .scene-container {
     flex-direction: column !important;
     gap: 15px !important;
