@@ -334,19 +334,20 @@ tw-passage div[style*="background-color: #424952"] span[style*="margin-right"] {
     margin-bottom: 20px !important;
   }
 
-  /* Target every transition container variant to anchor the page number firmly */
+  /* HARD FIX FOR MOBILE JUMPING: Mounts it directly to the phone viewport window */
   tw-include[type="footer"],
   .transition-in tw-include[type="footer"],
   [data-t8n^=dissolve] tw-include[type="footer"] {
-    position: absolute !important;
+    position: fixed !important;  /* Binds it straight to the display screen glass */
     top: 15px !important;
     right: 15px !important;
+    left: auto !important;
+    bottom: auto !important;
+    z-index: 999999 !important; /* Renders it completely over structural transition boxes */
     
-    /* Lock structural engine shifts */
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-    
-    /* Eradicate any animation frame delay */
+    /* Strips Harlowe's layout dimension recalculation animations instantly */
+    -webkit-transform: none !important;
+    transform: none !important;
     -webkit-transition: none !important;
     transition: none !important;
     -webkit-animation: none !important;
