@@ -300,7 +300,7 @@ tw-passage div[style*="background-color: #424952"] span[style*="margin-right"] {
 }
 
 /* ==========================================================================
-   9. MOBILE RESPONSIVE DISPLAY LAYERS (UPDATED TO FIX ARROW OVERLAP)
+   9. MOBILE RESPONSIVE DISPLAY LAYERS (UPDATED TO FIX ARROW OVERLAP & HOPPING)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   tw-story {
@@ -334,19 +334,26 @@ tw-passage div[style*="background-color: #424952"] span[style*="margin-right"] {
     margin-bottom: 20px !important;
   }
 
- tw-include[type="footer"] {
+  /* Target every transition container variant to anchor the page number firmly */
+  tw-include[type="footer"],
+  .transition-in tw-include[type="footer"],
+  [data-t8n^=dissolve] tw-include[type="footer"] {
     position: absolute !important;
     top: 15px !important;
     right: 15px !important;
     
-    /* Forces the graphics engine to lock the position in place during mobile screen adjustments */
+    /* Lock structural engine shifts */
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
     
-    /* Blocks mobile tap delays or animation adjustments */
+    /* Eradicate any animation frame delay */
     -webkit-transition: none !important;
     transition: none !important;
+    -webkit-animation: none !important;
+    animation: none !important;
+    opacity: 1 !important;
   }
+  
   .scene-container {
     flex-direction: column !important;
     gap: 15px !important;
