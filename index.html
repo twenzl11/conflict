@@ -333,6 +333,13 @@ img, .scene-photo img {
 max-width: 100% !important;
 max-height: 30vh !important;
 }
+  /* Add inside your existing mobile media query to permanently lock the mobile page box */
+tw-include[type="footer"] {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  transform: translate3d(0,0,0) !important; /* Forces hardware acceleration to stop the jitter */
+}
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="cover" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="A" tags="" position="375,175" size="100,100">(set: $showFooter to true)(set: $pageNumber to 21)
 {Chad immediately begins giving orders. He tells Monica she has to be the note taker because that is women&#39;s work. 
 &lt;br&gt;&#39;&#39;What do you do?&#39;&#39;
